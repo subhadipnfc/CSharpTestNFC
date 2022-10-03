@@ -1,0 +1,113 @@
+2022-09-14 16:52:42,825  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-09-14 16:52:47,072  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-09-14 16:52:48,274  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-09-14 16:52:48,398  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-09-14 16:52:49,106  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-09-14 16:52:50,414  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-09-14 16:52:50,429  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-09-14 16:52:50,437  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-09-14 16:52:50,443  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-09-14 16:52:54,255  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-09-14 16:52:55,761  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-09-14 16:52:55,837  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-09-14 16:52:55,877  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-09-14 16:52:56,303  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 413.1697ms.
+ 2022-09-14 16:52:56,313  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 466.7549ms
+ 2022-09-14 16:52:56,317  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-09-14 16:52:56,350  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 2213.7193ms
+ 2022-09-14 16:52:57,370  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-09-14 16:52:57,376  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 6.4093ms
+ 2022-09-14 16:55:03,618  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312
+ 2022-09-14 16:55:04,480  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Failed to validate the token.
+ Microsoft.IdentityModel.Tokens.SecurityTokenInvalidLifetimeException: IDX10230: Lifetime validation failed. Delegate returned false, securitytoken: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-09-14 16:55:04,497  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Bearer was not authenticated. Failure message: IDX10230: Lifetime validation failed. Delegate returned false, securitytoken: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+ 2022-09-14 16:55:04,512  INFO Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.? [?] - MESSAGE: Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+ 2022-09-14 16:55:04,527  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: AuthenticationScheme: Bearer was challenged.
+ 2022-09-14 16:55:04,532  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312 - 401 0 - 935.8621ms
+ 2022-09-14 16:57:56,749  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312
+ 2022-09-14 16:57:56,804  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Failed to validate the token.
+ Microsoft.IdentityModel.Tokens.SecurityTokenInvalidLifetimeException: IDX10230: Lifetime validation failed. Delegate returned false, securitytoken: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-09-14 16:57:56,808  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Bearer was not authenticated. Failure message: IDX10230: Lifetime validation failed. Delegate returned false, securitytoken: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+ 2022-09-14 16:57:56,819  INFO Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.? [?] - MESSAGE: Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+ 2022-09-14 16:57:56,823  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: AuthenticationScheme: Bearer was challenged.
+ 2022-09-14 16:57:56,834  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312 - 401 0 - 83.2866ms
+ 2022-09-14 17:00:14,402  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312
+ 2022-09-14 17:00:14,460  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web)'
+ 2022-09-14 17:00:14,495  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "InsertRecruitingStageByEvent", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertRecruitingStageByEvent(TemPositions.IntelliStaff.Core.ApplicantAggregate.RecruitingStageInput2) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-14 17:00:32,173  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-09-14 17:00:32,181  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-09-14 17:00:32,187  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-09-14 17:00:32,318  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-14 17:00:54,709  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (291ms) [Parameters=[@__objRequest_ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[Address], [a].[ApplicantType], [a].[CandidateId], [a].[CellPhoneNumber], [a].[City], [a].[CreatedBy], [a].[CreatedOn], [a].[DivisionId], [a].[Email], [a].[FirstName], [a].[HasResumeFile], [a].[HomePhoneNumber], [a].[JobPostId], [a].[JobPostReferenceId], [a].[LastName], [a].[MiddleName], [a].[ModifiedBy], [a].[ModifiedOn], [a].[OldApplicantId], [a].[RecordStatus], [a].[ReferenceId], [a].[State], [a].[SubSourceID], [a].[SubmitDateTime], [a].[TenantId], [a].[ZipCode]
+FROM [Applicant] AS [a]
+WHERE [a].[Id] = @__objRequest_ApplicantId_0
+ 2022-09-14 17:01:21,046  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (333ms) [Parameters=[@__objInput_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[Cand_ID], [c].[Address], [c].[agent_i9_verification_req], [c].[AgreementType], [c].[Alt_Phone], [c].[aoc_referral], [c].[app_submit_date], [c].[Beep], [c].[CFHC], [c].[CFHC_Expiration], [c].[CandidateType], [c].[cell_carrier_id], [c].[City], [c].[Contact_Name], [c].[Contact_Phone], [c].[Contact_Relationship], [c].[Cre_Auto_Emails], [c].[CreatedBy], [c].[CreatedOn], [c].[Crime], [c].[DNR_Reas_id], [c].[DOB], [c].[Date_Avail], [c].[date_enter], [c].[DirectDep], [c].[div_id], [c].[Dnr_Checked], [c].[Dnr_Desc], [c].[E_Mail], [c].[EMp_SINCE], [c].[E_Rating], [c].[EVerify_Status], [c].[Fax_Phone], [c].[First_Name], [c].[Health_Sup], [c].[Home_Phone], [c].[How_Heard_ID], [c].[I9_Compl], [c].[I9_Verified], [c].[In_Empowerment_Zone], [c].[independent_contractor], [c].[IsAdmittedInUS], [c].[is_clinical], [c].[is_perm_candidate], [c].[Last_Name], [c].[LastTimeslipWE], [c].[liability_agree_datetime], [c].[Max_Pay], [c].[max_education_level], [c].[Middle], [c].[Min_Pay], [c].[ModifiedBy], [c].[ModifiedOn], [c].[NeedUpdated], [c].[Net_Profit], [c].[no_ivr_calls], [c].[no_paystub], [c].[occ_year_of_exp], [c].[OnBoardingSubStatus], [c].[OnBoardingType], [c].[OriginalApplicantId], [c].[PJB_Contact_Method], [c].[payroll_card_agree_timestamp], [c].[pjb_contact_text], [c].[pjb_contact_email], [c].[pjb_contact_ivr_call], [c].[pos_seeking], [c].[REp], [c].[rcv_ivr], [c].[recruiter_id], [c].[Referral_Source], [c].[ref_id], [c].[ref_sub_source_id], [c].[rn_number], [c].[SSN], [c].[send_text_msgs], [c].[sf_hc_waiver], [c].[Spouse], [c].[State], [c].[StatusType], [c].[SubStatusType], [c].[TenantId], [c].[Text_Msg_Email], [c].[Un_Skill], [c].[Unempl], [c].[update_mobilenumber_date], [c].[wotc_printed], [c].[Zip], [c].[apt], [c].[fromast], [c].[hot], [c].[notes], [c].[office], [c].[unemplasof]
+FROM [Can_Prof_Gen] AS [c]
+WHERE [c].[E_Mail] IS NOT NULL AND ([c].[E_Mail] = @__objInput_Email_0)
+ 2022-09-14 17:01:35,526  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (269ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProfileContacted] ([Comments], [ContactType], [ContactedDate], [CreatedBy], [CreatedOn], [EntityId], [EntityType], [Status])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT [Id]
+FROM [ProfileContacted]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-09-14 17:01:38,426  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (238ms) [Parameters=[@__objApplicant_OldApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Applicant_ID], [a].[Address], [a].[Alt_Phone], [a].[Beep], [a].[Birthday], [a].[CFHC], [a].[City], [a].[CreatedBy], [a].[CreatedOn], [a].[Date_Avail], [a].[Div_ID], [a].[E_Mail], [a].[Fax_Phone], [a].[First_Name], [a].[Home_Phone], [a].[Last_Name], [a].[Middle], [a].[ModifiedBy], [a].[ModifiedOn], [a].[NewApplicantId], [a].[PhaseComplete], [a].[SSN], [a].[State], [a].[SubmitDateTime], [a].[TenantId], [a].[Zip], [a].[agent_i9_verification_req], [a].[cand_id], [a].[created_date], [a].[office]
+FROM [ApplicantQueue] AS [a]
+WHERE [a].[Applicant_ID] = @__objApplicant_OldApplicantId_0
+ 2022-09-14 17:01:39,016  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (241ms) [Parameters=[@p29='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (DbType = Int32), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Int32), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (DbType = DateTime2), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (DbType = Boolean), @p26='?' (DbType = Int32), @p27='?' (DbType = DateTime2), @p28='?' (DbType = Byte)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [ApplicantQueue] SET [Address] = @p0, [Alt_Phone] = @p1, [Beep] = @p2, [Birthday] = @p3, [CFHC] = @p4, [City] = @p5, [CreatedBy] = @p6, [CreatedOn] = @p7, [Date_Avail] = @p8, [Div_ID] = @p9, [E_Mail] = @p10, [Fax_Phone] = @p11, [First_Name] = @p12, [Home_Phone] = @p13, [Last_Name] = @p14, [Middle] = @p15, [ModifiedBy] = @p16, [ModifiedOn] = @p17, [NewApplicantId] = @p18, [PhaseComplete] = @p19, [SSN] = @p20, [State] = @p21, [SubmitDateTime] = @p22, [TenantId] = @p23, [Zip] = @p24, [agent_i9_verification_req] = @p25, [cand_id] = @p26, [created_date] = @p27, [office] = @p28
+WHERE [Applicant_ID] = @p29;
+SELECT @@ROWCOUNT;
+ 2022-09-14 17:01:42,710  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (237ms) [Parameters=[@__objRequest_RecruitingStageTypeId_0='?' (DbType = Int32), @__objRequest_ApplicantId_1='?' (DbType = Int32), @__objRequest_CandidateId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [RecuritmentStageDetail] AS [r]
+WHERE (([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_0) AND ([r].[ApplicantId] = @__objRequest_ApplicantId_1)) AND ([r].[CandidateId] = @__objRequest_CandidateId_2)
+ 2022-09-14 17:01:48,002  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (237ms) [Parameters=[@__objRequest_RecruitingSubStageTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) CASE
+    WHEN [r].[IsRecruitingStageCompleted] = 0 THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END
+FROM [RecruitingSubStageType] AS [r]
+WHERE [r].[Id] = @__objRequest_RecruitingSubStageTypeId_0
+ 2022-09-14 17:01:58,654  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+ 2022-09-14 17:01:59,456  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (252ms) [Parameters=[@__p_2='?' (DbType = Int32), @__objRequest_RecruitingStageTypeId_0='?' (DbType = Int32), @__objRequest_ApplicantId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_2) [r].[Id], [r].[ApplicantId], [r].[CandidateId], [r].[Comments], [r].[CreatedBy], [r].[CreatedOn], [r].[IsRecruitingStageCompleted], [r].[ModifiedBy], [r].[ModifiedOn], [r].[RecordStatus], [r].[RecruitingStageTypeId], [r].[TenantId]
+FROM [RecuritmentStageDetail] AS [r]
+WHERE ([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_0) AND ([r].[ApplicantId] = @__objRequest_ApplicantId_1)
+ 2022-09-14 17:02:07,964  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (238ms) [Parameters=[@p11='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [RecuritmentStageDetail] SET [ApplicantId] = @p0, [CandidateId] = @p1, [Comments] = @p2, [CreatedBy] = @p3, [CreatedOn] = @p4, [IsRecruitingStageCompleted] = @p5, [ModifiedBy] = @p6, [ModifiedOn] = @p7, [RecordStatus] = @p8, [RecruitingStageTypeId] = @p9, [TenantId] = @p10
+WHERE [Id] = @p11;
+SELECT @@ROWCOUNT;
+ 2022-09-14 17:02:08,208  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (238ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecuritmentSubStageDetail] ([Comments], [CreatedBy], [CreatedOn], [EntityId], [EntityTypeId], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecordStatus], [RecruitingStageId], [RecruitingSubStageId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [RecuritmentSubStageDetail]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-09-14 17:03:31,893  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing NotFoundObjectResult, writing value of type 'System.String'.
+ 2022-09-14 17:03:31,911  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web) in 197410.9829ms
+ 2022-09-14 17:03:31,918  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web)'
+ 2022-09-14 17:03:31,957  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/InsertRecruitingStageByEvent application/json 1312 - 404 - text/plain;+charset=utf-8 197547.9729ms
+ 

@@ -1,0 +1,469 @@
+2022-07-27 16:51:20,083  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-27 16:51:20,278  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 131497.9789ms
+ 2022-07-27 16:51:20,287  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:51:20,303  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 435 - 200 33206 application/json;+charset=utf-8 132271.0050ms
+ 2022-07-27 16:51:28,685  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434
+ 2022-07-27 16:51:28,709  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:51:28,713  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 16:51:31,135  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-27 16:51:31,668  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (518ms) [Parameters=[], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[Cand_ID], [c].[Address], [c].[agent_i9_verification_req], [c].[AgreementType], [c].[Alt_Phone], [c].[aoc_referral], [c].[app_submit_date], [c].[Beep], [c].[CFHC], [c].[CFHC_Expiration], [c].[CandidateType], [c].[cell_carrier_id], [c].[City], [c].[Contact_Name], [c].[Contact_Phone], [c].[Contact_Relationship], [c].[Cre_Auto_Emails], [c].[CreatedBy], [c].[CreatedOn], [c].[Crime], [c].[DNR_Reas_id], [c].[DOB], [c].[Date_Avail], [c].[date_enter], [c].[DirectDep], [c].[div_id], [c].[Dnr_Checked], [c].[Dnr_Desc], [c].[E_Mail], [c].[EMp_SINCE], [c].[E_Rating], [c].[EVerify_Status], [c].[Fax_Phone], [c].[First_Name], [c].[Health_Sup], [c].[Home_Phone], [c].[How_Heard_ID], [c].[I9_Compl], [c].[I9_Verified], [c].[In_Empowerment_Zone], [c].[independent_contractor], [c].[IsAdmittedInUS], [c].[is_clinical], [c].[is_perm_candidate], [c].[Last_Name], [c].[LastTimeslipWE], [c].[liability_agree_datetime], [c].[Max_Pay], [c].[max_education_level], [c].[Middle], [c].[Min_Pay], [c].[ModifiedBy], [c].[ModifiedOn], [c].[NeedUpdated], [c].[Net_Profit], [c].[no_ivr_calls], [c].[no_paystub], [c].[occ_year_of_exp], [c].[OnBoardingSubStatus], [c].[OnBoardingType], [c].[OriginalApplicantId], [c].[PJB_Contact_Method], [c].[payroll_card_agree_timestamp], [c].[pjb_contact_text], [c].[pjb_contact_email], [c].[pjb_contact_ivr_call], [c].[pos_seeking], [c].[REp], [c].[rcv_ivr], [c].[recruiter_id], [c].[Referral_Source], [c].[ref_id], [c].[ref_sub_source_id], [c].[rn_number], [c].[SSN], [c].[send_text_msgs], [c].[sf_hc_waiver], [c].[Spouse], [c].[State], [c].[StatusType], [c].[SubStatusType], [c].[TenantId], [c].[Text_Msg_Email], [c].[Un_Skill], [c].[Unempl], [c].[update_mobilenumber_date], [c].[wotc_printed], [c].[Zip], [c].[apt], [c].[fromast], [c].[hot], [c].[notes], [c].[office], [c].[unemplasof]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+ 2022-07-27 16:51:55,066  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-27 16:51:55,071  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-27 16:51:55,077  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+ 2022-07-27 16:51:55,093  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2022-07-27 16:52:04,844  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (9,735ms) [Parameters=[@__8__locals1_objRequest_UserId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N''), [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+    SELECT TOP(1) [i].[unique_resume_id]
+    FROM [ICU_Resume_queue] AS [i]
+    WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)), COALESCE((
+    SELECT TOP(1) [i0].[is_process]
+    FROM [ICU_Resume_queue] AS [i0]
+    CROSS APPLY (
+        SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+        FROM [icu_resume_queue_file] AS [i1]
+        WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+    ) AS [t0]), 0), 0, [a0].[Id], [j].[JobPostId], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [r].[Id], [r0].[Id], [t1].[RecruitingStageId], [t1].[ParentStageName], [t2].[RecruitingStageId], [t2].[RecrutingStage], [t2].[RecruitingSubStageId], [t2].[IsRecruitingStageCompleted], [t2].[CreatedOn], [t2].[UserName], (
+    SELECT TOP(1) [u0].[LoginTime]
+    FROM [UserLoginInfo] AS [u0]
+    WHERE [u0].[UserId] = @__8__locals1_objRequest_UserId_1
+    ORDER BY [u0].[Id] DESC), CASE
+    WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, GETDATE(), [a0].[SubSourceName]
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[Cand_ID]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [a].[Id]
+) AS [t1]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u] ON [r3].[CreatedBy] = [u].[User_ID]
+    WHERE [r3].[ApplicantId] = [a].[Id]
+) AS [t2]
+ORDER BY [a].[SubmitDateTime] DESC, [a].[Id], [a0].[Id], [j].[JobPostId], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [r].[Id], [r0].[Id], [t1].[RecruitingStageId], [t1].[ParentStageName], [t2].[RecruitingStageId], [t2].[RecrutingStage], [t2].[RecruitingSubStageId], [t2].[IsRecruitingStageCompleted], [t2].[CreatedOn]
+ 2022-07-27 16:53:15,336 ERROR Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Failed executing DbCommand (10ms) [Parameters=[@__8__locals1_objRequest_UserId_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t0].[Id], [t0].[FirstName], [t0].[LastName], [t0].[DivisionId], [t0].[Division], [t0].[c], [t0].[Email], [t0].[JobTitle], [t0].[City], [t0].[State], [t0].[ZipCode], [t0].[Address], [t0].[CellPhoneNumber], [t0].[HomePhoneNumber], [t0].[CandidateId], [t0].[JobPostId], [t0].[SubmitDateTime], [t0].[c0], [t0].[c1], [t0].[c2], [t0].[Id0], [t0].[JobPostId0], [t0].[Div_ID], [t0].[JobBoardId], [t0].[WorkingListItemId], [t0].[Cand_ID], [t0].[Id1], [t0].[Id2], [t2].[RecruitingStageId], [t2].[ParentStageName], [t3].[RecruitingStageId], [t3].[RecrutingStage], [t3].[RecruitingSubStageId], [t3].[IsRecruitingStageCompleted], [t3].[CreatedOn], [t3].[UserName], [t0].[c3], [t0].[c4], [t0].[c5], [t0].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t1]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_1
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [r].[Id] AS [Id1], [r0].[Id] AS [Id2]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+    LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+) AS [t0]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t0].[Id]
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t0].[Id]
+) AS [t3]
+ORDER BY [t0].[SubmitDateTime] DESC, [t0].[Id], [t0].[Id0], [t0].[JobPostId0], [t0].[Div_ID], [t0].[JobBoardId], [t0].[WorkingListItemId], [t0].[Cand_ID], [t0].[Id1], [t0].[Id2], [t2].[RecruitingStageId], [t2].[ParentStageName], [t3].[RecruitingStageId], [t3].[RecrutingStage], [t3].[RecruitingSubStageId], [t3].[IsRecruitingStageCompleted], [t3].[CreatedOn]
+ 2022-07-27 16:53:15,364 ERROR Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: An exception occurred while iterating over the results of a query for context type 'TemPositions.IntelliStaff.Infrastructure.IntelliStaffContext'.
+System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2022-07-27 16:53:31,123 ERROR Microsoft.VisualStudio.TestPlatform.TestHost.Program.Log [0] - MESSAGE: There is already an open DataReader associated with this Connection which must be closed first.
+ System.InvalidOperationException: There is already an open DataReader associated with this Connection which must be closed first.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at TemPositions.IntelliStaff.Infrastructure.Data.ApplicantRepository.GetJobPostApplicantAdvanceSerachDetails(ApplicantAdvanceSearchRequest objRequest) in C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Infrastructure\Data\ApplicantRepository.cs:line 2245
+2022-07-27 16:53:31,129  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'null'.
+ 2022-07-27 16:53:31,134  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 122417.5166ms
+ 2022-07-27 16:53:31,138  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:56:49,217  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-27 16:56:50,907  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 16:56:51,069  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-27 16:56:51,091  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 16:56:51,599  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-27 16:56:51,935  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-27 16:56:51,946  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-27 16:56:51,954  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-27 16:56:51,957  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-27 16:56:53,226  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-27 16:56:53,652  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:56:53,698  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 16:56:53,763  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-27 16:56:54,102  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 342.0953ms.
+ 2022-07-27 16:56:54,109  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-27 16:56:54,157  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 403.5024ms
+ 2022-07-27 16:56:54,172  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:56:54,195  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 67.0500ms
+ 2022-07-27 16:56:54,267  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1054.9349ms
+ 2022-07-27 16:56:56,685  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434
+ 2022-07-27 16:56:56,904  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:56:56,930  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 16:57:01,894  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 16:57:01,901  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 16:57:01,905  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 16:57:01,995  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-27 16:57:04,036  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (388ms) [Parameters=[], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[Cand_ID], [c].[Address], [c].[agent_i9_verification_req], [c].[AgreementType], [c].[Alt_Phone], [c].[aoc_referral], [c].[app_submit_date], [c].[Beep], [c].[CFHC], [c].[CFHC_Expiration], [c].[CandidateType], [c].[cell_carrier_id], [c].[City], [c].[Contact_Name], [c].[Contact_Phone], [c].[Contact_Relationship], [c].[Cre_Auto_Emails], [c].[CreatedBy], [c].[CreatedOn], [c].[Crime], [c].[DNR_Reas_id], [c].[DOB], [c].[Date_Avail], [c].[date_enter], [c].[DirectDep], [c].[div_id], [c].[Dnr_Checked], [c].[Dnr_Desc], [c].[E_Mail], [c].[EMp_SINCE], [c].[E_Rating], [c].[EVerify_Status], [c].[Fax_Phone], [c].[First_Name], [c].[Health_Sup], [c].[Home_Phone], [c].[How_Heard_ID], [c].[I9_Compl], [c].[I9_Verified], [c].[In_Empowerment_Zone], [c].[independent_contractor], [c].[IsAdmittedInUS], [c].[is_clinical], [c].[is_perm_candidate], [c].[Last_Name], [c].[LastTimeslipWE], [c].[liability_agree_datetime], [c].[Max_Pay], [c].[max_education_level], [c].[Middle], [c].[Min_Pay], [c].[ModifiedBy], [c].[ModifiedOn], [c].[NeedUpdated], [c].[Net_Profit], [c].[no_ivr_calls], [c].[no_paystub], [c].[occ_year_of_exp], [c].[OnBoardingSubStatus], [c].[OnBoardingType], [c].[OriginalApplicantId], [c].[PJB_Contact_Method], [c].[payroll_card_agree_timestamp], [c].[pjb_contact_text], [c].[pjb_contact_email], [c].[pjb_contact_ivr_call], [c].[pos_seeking], [c].[REp], [c].[rcv_ivr], [c].[recruiter_id], [c].[Referral_Source], [c].[ref_id], [c].[ref_sub_source_id], [c].[rn_number], [c].[SSN], [c].[send_text_msgs], [c].[sf_hc_waiver], [c].[Spouse], [c].[State], [c].[StatusType], [c].[SubStatusType], [c].[TenantId], [c].[Text_Msg_Email], [c].[Un_Skill], [c].[Unempl], [c].[update_mobilenumber_date], [c].[wotc_printed], [c].[Zip], [c].[apt], [c].[fromast], [c].[hot], [c].[notes], [c].[office], [c].[unemplasof]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+ 2022-07-27 16:59:38,518  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-27 16:59:38,526  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-27 16:59:38,540  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+ 2022-07-27 16:59:38,592  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2022-07-27 16:59:51,672  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (12,998ms) [Parameters=[@__8__locals1_objRequest_UserId_1='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t0].[Id], [t0].[FirstName], [t0].[LastName], [t0].[DivisionId], [t0].[Division], [t0].[c], [t0].[Email], [t0].[JobTitle], [t0].[City], [t0].[State], [t0].[ZipCode], [t0].[Address], [t0].[CellPhoneNumber], [t0].[HomePhoneNumber], [t0].[CandidateId], [t0].[JobPostId], [t0].[SubmitDateTime], [t0].[c0], [t0].[c1], [t0].[c2], [t0].[Id0], [t0].[JobPostId0], [t0].[Div_ID], [t0].[JobBoardId], [t0].[WorkingListItemId], [t0].[Cand_ID], [t0].[Id1], [t0].[Id2], [t2].[RecruitingStageId], [t2].[ParentStageName], [t3].[RecruitingStageId], [t3].[RecrutingStage], [t3].[RecruitingSubStageId], [t3].[IsRecruitingStageCompleted], [t3].[CreatedOn], [t3].[UserName], [t0].[c3], [t0].[c4], [t0].[c5], [t0].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t1]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_1
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [r].[Id] AS [Id1], [r0].[Id] AS [Id2]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+    LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+) AS [t0]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t0].[Id]
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t0].[Id]
+) AS [t3]
+ORDER BY [t0].[SubmitDateTime] DESC, [t0].[Id], [t0].[Id0], [t0].[JobPostId0], [t0].[Div_ID], [t0].[JobBoardId], [t0].[WorkingListItemId], [t0].[Cand_ID], [t0].[Id1], [t0].[Id2], [t2].[RecruitingStageId], [t2].[ParentStageName], [t3].[RecruitingStageId], [t3].[RecrutingStage], [t3].[RecruitingSubStageId], [t3].[IsRecruitingStageCompleted], [t3].[CreatedOn]
+ 2022-07-27 16:59:51,730  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-27 16:59:51,815  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 174881.7241ms
+ 2022-07-27 16:59:51,822  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 16:59:51,840  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434 - 200 30401 application/json;+charset=utf-8 175152.5849ms
+ 2022-07-27 17:04:52,935  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-27 17:04:54,361  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:04:54,519  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-27 17:04:54,538  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:04:54,819  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-27 17:04:55,077  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-27 17:04:55,090  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-27 17:04:55,095  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-27 17:04:55,100  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-27 17:04:56,115  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-27 17:04:56,473  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:04:56,508  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:04:56,537  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-27 17:04:56,852  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 264.8496ms.
+ 2022-07-27 17:04:56,858  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 343.405ms
+ 2022-07-27 17:04:56,866  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:04:56,873  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-27 17:04:56,942  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 11.0124ms
+ 2022-07-27 17:04:56,951  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 841.4075ms
+ 2022-07-27 17:05:41,516  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 432
+ 2022-07-27 17:05:41,736  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:05:41,758  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:05:48,488  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:05:48,493  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:05:48,497  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:05:48,567  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-27 17:05:51,305  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,028ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+WHERE CASE
+    WHEN ([r0].[RecruitingSubStageId] = 2) AND (([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) THEN CASE
+        WHEN ([r0].[RecruitingSubStageId] = 2) AND [r0].[RecruitingSubStageId] IS NOT NULL THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+    ELSE CASE
+        WHEN (((((((([a].[SubSourceID] = [a].[SubSourceID]) AND [a].[SubSourceID] IS NOT NULL) OR [a].[SubSourceID] IS NULL) AND ((([a].[FirstName] = N'') AND [a].[FirstName] IS NOT NULL) OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND ((([a].[LastName] = N'') AND [a].[LastName] IS NOT NULL) OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND ((([a].[Email] = N'') AND [a].[Email] IS NOT NULL) OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND (([a].[RecordStatus] = @__ToInt32_3) AND [a].[RecordStatus] IS NOT NULL)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL) THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+END = CAST(1 AS bit)
+ 2022-07-27 17:26:46,295  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-27 17:26:49,011  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:26:49,686  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-27 17:26:49,910  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:26:50,548  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-27 17:26:51,972  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-27 17:26:51,996  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-27 17:26:52,274  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-27 17:26:52,554  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-27 17:26:53,994  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-27 17:26:55,917  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:26:56,043  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:26:56,152  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-27 17:26:57,071  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 782.9767ms.
+ 2022-07-27 17:26:57,129  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 1028.0002ms
+ 2022-07-27 17:26:57,136  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:26:57,160  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 3358.1600ms
+ 2022-07-27 17:26:59,372  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-27 17:26:59,379  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 8.6362ms
+ 2022-07-27 17:27:17,226  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 432
+ 2022-07-27 17:27:17,501  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:27:17,528  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:27:42,586  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:27:42,591  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:27:42,595  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:27:42,676  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-27 17:27:45,316  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (880ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+WHERE ((((((EXISTS (
+    SELECT DISTINCT 1
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r2] ON [r1].[Id] = [r2].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r1].[ApplicantId] = [a1].[Id]
+    OUTER APPLY (
+        SELECT [c0].[Cand_ID], [c0].[Address], [c0].[agent_i9_verification_req], [c0].[AgreementType], [c0].[Alt_Phone], [c0].[aoc_referral], [c0].[app_submit_date], [c0].[Beep], [c0].[CFHC], [c0].[CFHC_Expiration], [c0].[CandidateType], [c0].[cell_carrier_id], [c0].[City], [c0].[Contact_Name], [c0].[Contact_Phone], [c0].[Contact_Relationship], [c0].[Cre_Auto_Emails], [c0].[CreatedBy], [c0].[CreatedOn], [c0].[Crime], [c0].[DNR_Reas_id], [c0].[DOB], [c0].[Date_Avail], [c0].[date_enter], [c0].[DirectDep], [c0].[div_id], [c0].[Dnr_Checked], [c0].[Dnr_Desc], [c0].[E_Mail], [c0].[EMp_SINCE], [c0].[E_Rating], [c0].[EVerify_Status], [c0].[Fax_Phone], [c0].[First_Name], [c0].[Health_Sup], [c0].[Home_Phone], [c0].[How_Heard_ID], [c0].[I9_Compl], [c0].[I9_Verified], [c0].[In_Empowerment_Zone], [c0].[independent_contractor], [c0].[IsAdmittedInUS], [c0].[is_clinical], [c0].[is_perm_candidate], [c0].[Last_Name], [c0].[LastTimeslipWE], [c0].[liability_agree_datetime], [c0].[Max_Pay], [c0].[max_education_level], [c0].[Middle], [c0].[Min_Pay], [c0].[ModifiedBy], [c0].[ModifiedOn], [c0].[NeedUpdated], [c0].[Net_Profit], [c0].[no_ivr_calls], [c0].[no_paystub], [c0].[occ_year_of_exp], [c0].[OnBoardingSubStatus], [c0].[OnBoardingType], [c0].[OriginalApplicantId], [c0].[PJB_Contact_Method], [c0].[payroll_card_agree_timestamp], [c0].[pjb_contact_text], [c0].[pjb_contact_email], [c0].[pjb_contact_ivr_call], [c0].[pos_seeking], [c0].[REp], [c0].[rcv_ivr], [c0].[recruiter_id], [c0].[Referral_Source], [c0].[ref_id], [c0].[ref_sub_source_id], [c0].[rn_number], [c0].[SSN], [c0].[send_text_msgs], [c0].[sf_hc_waiver], [c0].[Spouse], [c0].[State], [c0].[StatusType], [c0].[SubStatusType], [c0].[TenantId], [c0].[Text_Msg_Email], [c0].[Un_Skill], [c0].[Unempl], [c0].[update_mobilenumber_date], [c0].[wotc_printed], [c0].[Zip], [c0].[apt], [c0].[fromast], [c0].[hot], [c0].[notes], [c0].[office], [c0].[unemplasof]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t0]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE ((([r2].[RecruitingSubStageId] = 2) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t0].[StatusType] <> 4) OR [t0].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-27 17:40:27,701  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-27 17:40:30,222  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:40:30,416  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-27 17:40:30,474  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:40:31,007  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-27 17:40:31,367  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-27 17:40:31,379  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-27 17:40:31,384  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-27 17:40:31,387  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-27 17:40:32,444  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-27 17:40:32,791  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:40:32,821  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:40:32,841  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-27 17:40:33,114  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 271.0666ms.
+ 2022-07-27 17:40:33,118  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 293.1316ms
+ 2022-07-27 17:40:33,124  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:40:33,147  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 724.3098ms
+ 2022-07-27 17:40:43,688  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-27 17:40:46,041  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:40:46,418  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-27 17:40:46,505  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-27 17:40:47,121  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-27 17:40:47,581  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-27 17:40:47,620  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-27 17:40:47,626  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-27 17:40:47,640  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-27 17:40:48,751  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-27 17:40:49,141  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:40:49,181  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:40:49,212  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-27 17:40:49,826  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 439.2048ms.
+ 2022-07-27 17:40:49,861  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-27 17:40:49,876  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 644.8628ms
+ 2022-07-27 17:40:49,884  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:40:49,890  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 87.0074ms
+ 2022-07-27 17:40:49,963  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1357.3623ms
+ 2022-07-27 17:41:11,766  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 432
+ 2022-07-27 17:41:12,119  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-27 17:41:12,157  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-27 17:41:15,577  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:41:15,583  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:41:15,589  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-27 17:41:15,679  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-27 17:41:31,111  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,029ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+LEFT JOIN [RecuritmentStageDetail] AS [r] ON [a].[Id] = [r].[ApplicantId]
+LEFT JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+WHERE ((((((EXISTS (
+    SELECT DISTINCT 1
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r2] ON [r1].[Id] = [r2].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r1].[ApplicantId] = [a1].[Id]
+    OUTER APPLY (
+        SELECT [c0].[Cand_ID], [c0].[Address], [c0].[agent_i9_verification_req], [c0].[AgreementType], [c0].[Alt_Phone], [c0].[aoc_referral], [c0].[app_submit_date], [c0].[Beep], [c0].[CFHC], [c0].[CFHC_Expiration], [c0].[CandidateType], [c0].[cell_carrier_id], [c0].[City], [c0].[Contact_Name], [c0].[Contact_Phone], [c0].[Contact_Relationship], [c0].[Cre_Auto_Emails], [c0].[CreatedBy], [c0].[CreatedOn], [c0].[Crime], [c0].[DNR_Reas_id], [c0].[DOB], [c0].[Date_Avail], [c0].[date_enter], [c0].[DirectDep], [c0].[div_id], [c0].[Dnr_Checked], [c0].[Dnr_Desc], [c0].[E_Mail], [c0].[EMp_SINCE], [c0].[E_Rating], [c0].[EVerify_Status], [c0].[Fax_Phone], [c0].[First_Name], [c0].[Health_Sup], [c0].[Home_Phone], [c0].[How_Heard_ID], [c0].[I9_Compl], [c0].[I9_Verified], [c0].[In_Empowerment_Zone], [c0].[independent_contractor], [c0].[IsAdmittedInUS], [c0].[is_clinical], [c0].[is_perm_candidate], [c0].[Last_Name], [c0].[LastTimeslipWE], [c0].[liability_agree_datetime], [c0].[Max_Pay], [c0].[max_education_level], [c0].[Middle], [c0].[Min_Pay], [c0].[ModifiedBy], [c0].[ModifiedOn], [c0].[NeedUpdated], [c0].[Net_Profit], [c0].[no_ivr_calls], [c0].[no_paystub], [c0].[occ_year_of_exp], [c0].[OnBoardingSubStatus], [c0].[OnBoardingType], [c0].[OriginalApplicantId], [c0].[PJB_Contact_Method], [c0].[payroll_card_agree_timestamp], [c0].[pjb_contact_text], [c0].[pjb_contact_email], [c0].[pjb_contact_ivr_call], [c0].[pos_seeking], [c0].[REp], [c0].[rcv_ivr], [c0].[recruiter_id], [c0].[Referral_Source], [c0].[ref_id], [c0].[ref_sub_source_id], [c0].[rn_number], [c0].[SSN], [c0].[send_text_msgs], [c0].[sf_hc_waiver], [c0].[Spouse], [c0].[State], [c0].[StatusType], [c0].[SubStatusType], [c0].[TenantId], [c0].[Text_Msg_Email], [c0].[Un_Skill], [c0].[Unempl], [c0].[update_mobilenumber_date], [c0].[wotc_printed], [c0].[Zip], [c0].[apt], [c0].[fromast], [c0].[hot], [c0].[notes], [c0].[office], [c0].[unemplasof]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t0]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE ((([r2].[RecruitingSubStageId] = 2) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t0].[StatusType] <> 4) OR [t0].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 

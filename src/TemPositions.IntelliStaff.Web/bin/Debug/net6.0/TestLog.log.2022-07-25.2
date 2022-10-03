@@ -1,0 +1,894 @@
+2022-07-25 21:23:41,671  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434 - 200 48940 application/json;+charset=utf-8 33101.0117ms
+ 2022-07-25 21:24:24,503  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430
+ 2022-07-25 21:24:24,521  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:24:24,524  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:24:27,416  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:24:28,301  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (867ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE 0 = 1
+) AS [t0]
+WHERE CASE
+    WHEN ((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3) THEN CASE
+        WHEN COALESCE([t0].[Id], 0) = [a].[Id] THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+    ELSE CASE
+        WHEN (COALESCE([t0].[Id], 0) <> [a].[Id]) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL) THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+END = CAST(1 AS bit)
+ 2022-07-25 21:24:38,374  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,807ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE 0 = 1
+    ) AS [t0]
+    WHERE CASE
+        WHEN ((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3) THEN CASE
+            WHEN COALESCE([t0].[Id], 0) = [a].[Id] THEN CAST(1 AS bit)
+            ELSE CAST(0 AS bit)
+        END
+        ELSE CASE
+            WHEN (COALESCE([t0].[Id], 0) <> [a].[Id]) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL) THEN CAST(1 AS bit)
+            ELSE CAST(0 AS bit)
+        END
+    END = CAST(1 AS bit)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:24:38,379  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:24:38,412  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 13859.7777ms
+ 2022-07-25 21:24:38,419  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:24:38,424  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430 - 200 25086 application/json;+charset=utf-8 13920.8439ms
+ 2022-07-25 21:25:04,792  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431
+ 2022-07-25 21:25:04,827  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:25:04,833  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:25:08,180  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:25:09,387  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,182ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE ((([r0].[RecruitingSubStageId] = 1) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+) AS [t0]
+WHERE CASE
+    WHEN ((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3) THEN CASE
+        WHEN COALESCE([t0].[Id], 0) = [a].[Id] THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+    ELSE CASE
+        WHEN (COALESCE([t0].[Id], 0) <> [a].[Id]) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL) THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END
+END = CAST(1 AS bit)
+ 2022-07-25 21:25:42,954  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2,062ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE ((([r0].[RecruitingSubStageId] = 1) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+    ) AS [t0]
+    WHERE CASE
+        WHEN ((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3) THEN CASE
+            WHEN COALESCE([t0].[Id], 0) = [a].[Id] THEN CAST(1 AS bit)
+            ELSE CAST(0 AS bit)
+        END
+        ELSE CASE
+            WHEN (COALESCE([t0].[Id], 0) <> [a].[Id]) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL) THEN CAST(1 AS bit)
+            ELSE CAST(0 AS bit)
+        END
+    END = CAST(1 AS bit)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:25:42,959  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:25:42,967  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 38128.6425ms
+ 2022-07-25 21:25:42,975  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:25:42,980  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431 - 200 25086 application/json;+charset=utf-8 38189.3108ms
+ 2022-07-25 21:26:25,885  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431
+ 2022-07-25 21:26:25,914  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:26:25,917  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:26:32,015  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:28:13,640  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-25 21:28:16,070  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-25 21:28:16,270  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-25 21:28:16,297  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-25 21:28:16,673  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-25 21:28:16,996  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-25 21:28:17,006  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-25 21:28:17,010  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-25 21:28:17,013  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-25 21:28:18,595  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-25 21:28:18,996  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431
+ 2022-07-25 21:28:19,129  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:28:19,184  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:28:19,219  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-25 21:28:19,536  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:28:19,664  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 356.7397ms.
+ 2022-07-25 21:28:19,676  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:28:19,696  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 483.4113ms
+ 2022-07-25 21:28:19,715  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-25 21:28:19,722  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:28:19,752  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 48.2152ms
+ 2022-07-25 21:28:19,800  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1333.8621ms
+ 2022-07-25 21:28:24,371  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:28:24,379  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:28:24,385  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:28:24,498  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:28:26,897  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (333ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE ((([r0].[RecruitingSubStageId] = 1) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:28:35,433  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:28:35,443  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:28:35,453  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+ 2022-07-25 21:28:35,566  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2022-07-25 21:28:37,269  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,637ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE ((([r0].[RecruitingSubStageId] = 1) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:28:37,743  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:28:37,935  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 18200.2554ms
+ 2022-07-25 21:28:37,952  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:28:37,972  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431 - 200 39227 application/json;+charset=utf-8 18973.1249ms
+ 2022-07-25 21:29:11,966  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434
+ 2022-07-25 21:29:11,983  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:29:11,986  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:29:23,416  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:29:23,680  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (243ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE (([r0].[RecruitingSubStageId] IN (2, 12) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:29:27,582  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,224ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE (([r0].[RecruitingSubStageId] IN (2, 12) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:29:27,929  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:29:27,949  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 15959.0889ms
+ 2022-07-25 21:29:27,958  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:29:27,965  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434 - 200 39227 application/json;+charset=utf-8 16002.1979ms
+ 2022-07-25 21:29:40,295  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430
+ 2022-07-25 21:29:40,298  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:29:40,301  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:29:43,853  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:29:44,145  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (265ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE 0 = 1
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:29:58,268  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,461ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE 0 = 1
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:29:58,593  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:29:58,615  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 18311.105ms
+ 2022-07-25 21:29:58,620  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:29:58,627  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430 - 200 39227 application/json;+charset=utf-8 18332.7448ms
+ 2022-07-25 21:32:33,533  INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.? [?] - MESSAGE: User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ 2022-07-25 21:32:35,505  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-25 21:32:35,757  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+ 2022-07-25 21:32:35,784  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:6.0.0' with options: None
+ 2022-07-25 21:32:36,246  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+ 2022-07-25 21:32:36,512  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Now listening on: http://localhost:57678
+ 2022-07-25 21:32:36,524  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2022-07-25 21:32:36,529  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2022-07-25 21:32:36,532  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Content root path: C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Web\
+ 2022-07-25 21:32:38,733  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/ - -
+ 2022-07-25 21:32:39,493  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:32:39,523  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TemPositions.IntelliStaff.Web.Controllers.HomeController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:32:39,550  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executing ViewResult, running view Index.
+ 2022-07-25 21:32:40,056  INFO Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.? [?] - MESSAGE: Executed ViewResult - view Index executed in 362.8988ms.
+ 2022-07-25 21:32:40,065  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+ 2022-07-25 21:32:40,067  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web) in 533.844ms
+ 2022-07-25 21:32:40,074  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Controllers.HomeController.Index (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:32:40,086  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 26.6757ms
+ 2022-07-25 21:32:40,134  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1484.2047ms
+ 2022-07-25 21:32:40,741  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430
+ 2022-07-25 21:32:41,068  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:32:41,102  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:32:47,618  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'BasePointValue' on entity type 'NoteCategoriesChild'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:32:47,624  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MaxPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:32:47,630  WARN Microsoft.EntityFrameworkCore.Model.Validation.? [?] - MESSAGE: No store type was specified for the decimal property 'MinPay' on entity type 'CanProfGen'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+ 2022-07-25 21:32:47,753  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:32:49,822  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (325ms) [Parameters=[@__ToDateTime_0='?' (DbType = DateTime2), @__ToDateTime_1='?' (DbType = DateTime2), @__ToInt32_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[Cand_ID], [c0].[Address], [c0].[agent_i9_verification_req], [c0].[AgreementType], [c0].[Alt_Phone], [c0].[aoc_referral], [c0].[app_submit_date], [c0].[Beep], [c0].[CFHC], [c0].[CFHC_Expiration], [c0].[CandidateType], [c0].[cell_carrier_id], [c0].[City], [c0].[Contact_Name], [c0].[Contact_Phone], [c0].[Contact_Relationship], [c0].[Cre_Auto_Emails], [c0].[CreatedBy], [c0].[CreatedOn], [c0].[Crime], [c0].[DNR_Reas_id], [c0].[DOB], [c0].[Date_Avail], [c0].[date_enter], [c0].[DirectDep], [c0].[div_id], [c0].[Dnr_Checked], [c0].[Dnr_Desc], [c0].[E_Mail], [c0].[EMp_SINCE], [c0].[E_Rating], [c0].[EVerify_Status], [c0].[Fax_Phone], [c0].[First_Name], [c0].[Health_Sup], [c0].[Home_Phone], [c0].[How_Heard_ID], [c0].[I9_Compl], [c0].[I9_Verified], [c0].[In_Empowerment_Zone], [c0].[independent_contractor], [c0].[IsAdmittedInUS], [c0].[is_clinical], [c0].[is_perm_candidate], [c0].[Last_Name], [c0].[LastTimeslipWE], [c0].[liability_agree_datetime], [c0].[Max_Pay], [c0].[max_education_level], [c0].[Middle], [c0].[Min_Pay], [c0].[ModifiedBy], [c0].[ModifiedOn], [c0].[NeedUpdated], [c0].[Net_Profit], [c0].[no_ivr_calls], [c0].[no_paystub], [c0].[occ_year_of_exp], [c0].[OnBoardingSubStatus], [c0].[OnBoardingType], [c0].[OriginalApplicantId], [c0].[PJB_Contact_Method], [c0].[payroll_card_agree_timestamp], [c0].[pjb_contact_text], [c0].[pjb_contact_email], [c0].[pjb_contact_ivr_call], [c0].[pos_seeking], [c0].[REp], [c0].[rcv_ivr], [c0].[recruiter_id], [c0].[Referral_Source], [c0].[ref_id], [c0].[ref_sub_source_id], [c0].[rn_number], [c0].[SSN], [c0].[send_text_msgs], [c0].[sf_hc_waiver], [c0].[Spouse], [c0].[State], [c0].[StatusType], [c0].[SubStatusType], [c0].[TenantId], [c0].[Text_Msg_Email], [c0].[Un_Skill], [c0].[Unempl], [c0].[update_mobilenumber_date], [c0].[wotc_printed], [c0].[Zip], [c0].[apt], [c0].[fromast], [c0].[hot], [c0].[notes], [c0].[office], [c0].[unemplasof]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE 0 = 1
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_0) AND ([a].[SubmitDateTime] <= @__ToDateTime_1))) AND ([a].[RecordStatus] = @__ToInt32_2)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:33:05,449  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:33:05,456  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:33:05,464  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+ 2022-07-25 21:33:05,517  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2022-07-25 21:33:07,303  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,741ms) [Parameters=[@__8__locals1_objRequest_UserId_3='?' (DbType = Int32), @__ToDateTime_0='?' (DbType = DateTime2), @__ToDateTime_1='?' (DbType = DateTime2), @__ToInt32_2='?' (DbType = Int32), @__p_5='?' (DbType = Int32), @__p_6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_3
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[Cand_ID], [c0].[Address], [c0].[agent_i9_verification_req], [c0].[AgreementType], [c0].[Alt_Phone], [c0].[aoc_referral], [c0].[app_submit_date], [c0].[Beep], [c0].[CFHC], [c0].[CFHC_Expiration], [c0].[CandidateType], [c0].[cell_carrier_id], [c0].[City], [c0].[Contact_Name], [c0].[Contact_Phone], [c0].[Contact_Relationship], [c0].[Cre_Auto_Emails], [c0].[CreatedBy], [c0].[CreatedOn], [c0].[Crime], [c0].[DNR_Reas_id], [c0].[DOB], [c0].[Date_Avail], [c0].[date_enter], [c0].[DirectDep], [c0].[div_id], [c0].[Dnr_Checked], [c0].[Dnr_Desc], [c0].[E_Mail], [c0].[EMp_SINCE], [c0].[E_Rating], [c0].[EVerify_Status], [c0].[Fax_Phone], [c0].[First_Name], [c0].[Health_Sup], [c0].[Home_Phone], [c0].[How_Heard_ID], [c0].[I9_Compl], [c0].[I9_Verified], [c0].[In_Empowerment_Zone], [c0].[independent_contractor], [c0].[IsAdmittedInUS], [c0].[is_clinical], [c0].[is_perm_candidate], [c0].[Last_Name], [c0].[LastTimeslipWE], [c0].[liability_agree_datetime], [c0].[Max_Pay], [c0].[max_education_level], [c0].[Middle], [c0].[Min_Pay], [c0].[ModifiedBy], [c0].[ModifiedOn], [c0].[NeedUpdated], [c0].[Net_Profit], [c0].[no_ivr_calls], [c0].[no_paystub], [c0].[occ_year_of_exp], [c0].[OnBoardingSubStatus], [c0].[OnBoardingType], [c0].[OriginalApplicantId], [c0].[PJB_Contact_Method], [c0].[payroll_card_agree_timestamp], [c0].[pjb_contact_text], [c0].[pjb_contact_email], [c0].[pjb_contact_ivr_call], [c0].[pos_seeking], [c0].[REp], [c0].[rcv_ivr], [c0].[recruiter_id], [c0].[Referral_Source], [c0].[ref_id], [c0].[ref_sub_source_id], [c0].[rn_number], [c0].[SSN], [c0].[send_text_msgs], [c0].[sf_hc_waiver], [c0].[Spouse], [c0].[State], [c0].[StatusType], [c0].[SubStatusType], [c0].[TenantId], [c0].[Text_Msg_Email], [c0].[Un_Skill], [c0].[Unempl], [c0].[update_mobilenumber_date], [c0].[wotc_printed], [c0].[Zip], [c0].[apt], [c0].[fromast], [c0].[hot], [c0].[notes], [c0].[office], [c0].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE 0 = 1
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_0) AND ([a].[SubmitDateTime] <= @__ToDateTime_1))) AND ([a].[RecordStatus] = @__ToInt32_2)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_5 ROWS FETCH NEXT @__p_6 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:33:07,783  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:33:07,908  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 26802.5459ms
+ 2022-07-25 21:33:07,920  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:33:07,933  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 430 - 200 39227 application/json;+charset=utf-8 27191.2250ms
+ 2022-07-25 21:33:14,519  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434
+ 2022-07-25 21:33:14,539  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:33:14,544  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:33:26,622  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:33:26,905  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (241ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE (([r0].[RecruitingSubStageId] IN (2, 12) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:33:39,810  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:33:39,817  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+ 2022-07-25 21:33:39,821  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+ 2022-07-25 21:33:39,842  WARN Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+ 2022-07-25 21:33:41,150  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,278ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE (([r0].[RecruitingSubStageId] IN (2, 12) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 2022-07-25 21:33:41,511  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-25 21:33:41,544  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 26991.32ms
+ 2022-07-25 21:33:41,551  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:33:41,555  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 434 - 200 39227 application/json;+charset=utf-8 27035.1744ms
+ 2022-07-25 21:34:26,072  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 431
+ 2022-07-25 21:34:26,112  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-07-25 21:34:26,117  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-25 21:34:28,771  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-25 21:34:29,062  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (266ms) [Parameters=[@__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [a1].[Id]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+    INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+    CROSS APPLY (
+        SELECT [c0].[StatusType]
+        FROM [Can_Prof_Gen] AS [c0]
+        WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+    ) AS [t1]
+    INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+    WHERE ((([r0].[RecruitingSubStageId] = 3) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+) AS [t0]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-07-25 21:34:41,928  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,794ms) [Parameters=[@__8__locals1_objRequest_UserId_4='?' (DbType = Int32), @__ToDateTime_1='?' (DbType = DateTime2), @__ToDateTime_2='?' (DbType = DateTime2), @__ToInt32_3='?' (DbType = Int32), @__p_6='?' (DbType = Int32), @__p_7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [t2].[Id], [t2].[FirstName], [t2].[LastName], [t2].[DivisionId], [t2].[Division], [t2].[c], [t2].[Email], [t2].[JobTitle], [t2].[City], [t2].[State], [t2].[ZipCode], [t2].[Address], [t2].[CellPhoneNumber], [t2].[HomePhoneNumber], [t2].[CandidateId], [t2].[JobPostId], [t2].[SubmitDateTime], [t2].[c0], [t2].[c1], [t2].[c2], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn], [t5].[UserName], [t2].[c3], [t2].[c4], [t2].[c5], [t2].[SubSourceName]
+FROM (
+    SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+        SELECT TOP(1) [i].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i]
+        WHERE ([i].[applicant_id] = [a].[OldApplicantId]) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AS [c0], COALESCE((
+        SELECT TOP(1) [i0].[is_process]
+        FROM [ICU_Resume_queue] AS [i0]
+        CROSS APPLY (
+            SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+            FROM [icu_resume_queue_file] AS [i1]
+            WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+        ) AS [t3]), 0) AS [c1], 0 AS [c2], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__8__locals1_objRequest_UserId_4
+        ORDER BY [u].[Id] DESC) AS [c3], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c4], GETDATE() AS [c5], [a0].[SubSourceName], [a0].[Id] AS [Id0], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t0].[Id] AS [Id1]
+    FROM [Applicant] AS [a]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+    OUTER APPLY (
+        SELECT [c].[Cand_ID], [c].[StatusType]
+        FROM [Can_Prof_Gen] AS [c]
+        WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+    ) AS [t]
+    OUTER APPLY (
+        SELECT DISTINCT [a1].[Id]
+        FROM [RecuritmentStageDetail] AS [r]
+        INNER JOIN [RecuritmentSubStageDetail] AS [r0] ON [r].[Id] = [r0].[RecruitingStageId]
+        INNER JOIN [Applicant] AS [a1] ON [r].[ApplicantId] = [a1].[Id]
+        CROSS APPLY (
+            SELECT [c0].[StatusType]
+            FROM [Can_Prof_Gen] AS [c0]
+            WHERE (([a1].[CandidateId] <> 0) OR [a1].[CandidateId] IS NULL) AND ([a1].[CandidateId] = [c0].[Cand_ID])
+        ) AS [t1]
+        INNER JOIN [Divisions] AS [d0] ON [a1].[DivisionId] = [d0].[Div_ID]
+        WHERE ((([r0].[RecruitingSubStageId] = 3) AND (([a1].[SubmitDateTime] >= @__ToDateTime_1) AND ([a1].[SubmitDateTime] <= @__ToDateTime_2))) AND (([t1].[StatusType] <> 4) OR [t1].[StatusType] IS NULL)) AND ([a1].[Id] = [a].[Id])
+    ) AS [t0]
+    WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_1) AND ([a].[SubmitDateTime] <= @__ToDateTime_2))) AND ([a].[RecordStatus] = @__ToInt32_3)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+    ORDER BY [a].[SubmitDateTime] DESC
+    OFFSET @__p_6 ROWS FETCH NEXT @__p_7 ROWS ONLY
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r2].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecruitingStageType] AS [r2] ON [r1].[RecruitingStageTypeId] = [r2].[RecruitingStageTypeId]
+    WHERE [r1].[ApplicantId] = [t2].[Id]
+) AS [t4]
+OUTER APPLY (
+    SELECT DISTINCT [r3].[RecruitingStageTypeId] AS [RecruitingStageId], [r5].[SubStageName] AS [RecrutingStage], [r4].[RecruitingSubStageId], [r3].[IsRecruitingStageCompleted], [r3].[CreatedOn], [u0].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r3]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r4] ON [r3].[Id] = [r4].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r5] ON [r4].[RecruitingSubStageId] = [r5].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r3].[CreatedBy] = [u0].[User_ID]
+    WHERE [r3].[ApplicantId] = [t2].[Id]
+) AS [t5]
+ORDER BY [t2].[SubmitDateTime] DESC, [t2].[Id], [t2].[Id0], [t2].[JobPostId0], [t2].[Div_ID], [t2].[JobBoardId], [t2].[WorkingListItemId], [t2].[Cand_ID], [t2].[Id1], [t4].[RecruitingStageId], [t4].[ParentStageName], [t5].[RecruitingStageId], [t5].[RecrutingStage], [t5].[RecruitingSubStageId], [t5].[IsRecruitingStageCompleted], [t5].[CreatedOn]
+ 

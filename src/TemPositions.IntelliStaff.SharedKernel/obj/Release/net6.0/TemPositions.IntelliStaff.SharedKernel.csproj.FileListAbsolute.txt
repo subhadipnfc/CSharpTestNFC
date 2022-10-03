@@ -1,0 +1,12 @@
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\bin\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.deps.json
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\bin\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\bin\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.pdb
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.csproj.AssemblyReference.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.AssemblyInfo.cs
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\refint\TemPositions.IntelliStaff.SharedKernel.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.pdb
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.SharedKernel\obj\Release\net6.0\ref\TemPositions.IntelliStaff.SharedKernel.dll

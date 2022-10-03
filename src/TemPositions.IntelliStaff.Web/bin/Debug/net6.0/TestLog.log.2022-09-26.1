@@ -1,0 +1,668 @@
+2022-09-26 17:29:47,201  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:47,247  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetRecruitingStages (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,270  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:47,273  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetRecruitingStages", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRecruitingStages(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:47,322  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.WorkingListController.GetWorkingList (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,359  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:47,403  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetWorkingList", controller = "WorkingList", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWorkingList(Int32) on controller TemPositions.IntelliStaff.Web.Api.WorkingListController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:47,409  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Divisions/GetDivisions - - - 204 - - 128.4502ms
+ 2022-09-26 17:29:47,415  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:47,420  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/JobBoardDetails/GetJobBoardDetails - -
+ 2022-09-26 17:29:47,424  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 324
+ 2022-09-26 17:29:47,491  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:47,512  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (532ms) [Parameters=[@__TenantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], [c].[Description]
+FROM [Campaign] AS [c]
+WHERE ([c].[TenantId] = @__TenantId_0) AND ([c].[IsActive] = 1)
+ 2022-09-26 17:29:47,516  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:47,526  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.Campaign, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:47,587  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/JobBoardDetails/GetJobBoardDetails - - - 204 - - 88.8733ms
+ 2022-09-26 17:29:47,598  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Divisions/GetDivisions application/json -
+ 2022-09-26 17:29:47,605  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetCampaignList (TemPositions.IntelliStaff.Web) in 618.8608ms
+ 2022-09-26 17:29:47,612  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:47,619  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:47,628  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetCampaignList (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,633  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:47,637  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,643  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.DivisionsController.GetDivisions (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,649  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetCampaignList?TenantId=1 application/json - - 200 8155 application/json;+charset=utf-8 983.9242ms
+ 2022-09-26 17:29:47,683  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetDivisions", controller = "Divisions", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDivisions() on controller TemPositions.IntelliStaff.Web.Api.DivisionsController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:47,685  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobPostApplicantAdvanceSerachDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobPostApplicantAdvanceSerachDetails(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantAdvanceSearchRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:47,713  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/JobBoardDetails/GetJobBoardDetails application/json -
+ 2022-09-26 17:29:47,743  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:47,755  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:47,776  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:47,782  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:47,797  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.JobBoardDetailsController.GetJobBoardDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,816  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetJobBoardDetails", controller = "JobBoardDetails", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetJobBoardDetails() on controller TemPositions.IntelliStaff.Web.Api.JobBoardDetailsController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:47,841  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:47,885  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (788ms) [Parameters=[@__TenantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [e].[ID], [e].[EmailBody], [e].[EmailSubject], [e].[EmailTemplateTypeId], [e].[EntityId], [e].[Status], [e].[UserId], [e].[TenantId], [e].[TemplateName]
+FROM [EmailTemplates] AS [e]
+WHERE [e].[TenantId] = @__TenantId_0
+ 2022-09-26 17:29:47,906  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.EmailTemplates, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:47,914  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetEmailTemplates (TemPositions.IntelliStaff.Web) in 915.8821ms
+ 2022-09-26 17:29:47,920  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetEmailTemplates (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:47,931  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetEmailTemplates?TenantId=1 application/json - - 200 640 application/json;+charset=utf-8 1168.3205ms
+ 2022-09-26 17:29:48,085  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (686ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r0].[RecruitingStageTypeId], [r0].[StageName], [r].[Id], [r1].[Id], [r1].[RecruitingStageTypeId], [r1].[SubStageName], [r1].[IsRecruitingStageCompleted], [r1].[CreatedBy], [r1].[CreatedOn], [r1].[Status]
+FROM [RecruitingSubStageType] AS [r]
+LEFT JOIN [RecruitingStageType] AS [r0] ON [r].[RecruitingStageTypeId] = [r0].[RecruitingStageTypeId]
+LEFT JOIN [RecruitingSubStageType] AS [r1] ON [r0].[RecruitingStageTypeId] = [r1].[RecruitingStageTypeId]
+ORDER BY [r0].[DisplayOrder], [r].[Id], [r0].[RecruitingStageTypeId]
+ 2022-09-26 17:29:48,098  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (646ms) [Parameters=[@__UserID_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT DISTINCT [w].[WorkingListId], [w].[WorkingListName]
+FROM [WorkingListNew] AS [w]
+LEFT JOIN [WorkingListUser] AS [w0] ON [w].[WorkingListId] = [w0].[WorkingListId]
+WHERE (([w].[WorkingListAccessTypeId] = 2) OR (([w].[WorkingListAccessTypeId] = 1) AND ([w0].[UserId] = @__UserID_0))) OR (([w].[WorkingListAccessTypeId] = 0) AND ([w0].[UserId] = @__UserID_0))
+ 2022-09-26 17:29:48,136  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.RecruitingStagesData, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:48,169  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetRecruitingStages (TemPositions.IntelliStaff.Web) in 842.8179ms
+ 2022-09-26 17:29:48,173  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetRecruitingStages (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:48,180  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetRecruitingStages application/json 14 - 200 15255 application/json;+charset=utf-8 1088.2922ms
+ 2022-09-26 17:29:48,316  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (491ms) [Parameters=[@__ToDateTime_0='?' (DbType = DateTime2), @__ToDateTime_1='?' (DbType = DateTime2), @__ToInt32_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT COUNT(*)
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_0) AND ([a].[SubmitDateTime] <= @__ToDateTime_1))) AND ([a].[RecordStatus] = @__ToInt32_2)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ 2022-09-26 17:29:48,335  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (557ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Div_ID], [d].[Division], [d].[TenantId]
+FROM [Divisions] AS [d]
+ORDER BY [d].[Division]
+ 2022-09-26 17:29:48,338  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.WorkListAggregate.WorkingListNew, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:48,373  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (402ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [j].[JobBoardId], [j].[BoardName], [j].[TenantId]
+FROM [JobBoardDetails] AS [j]
+ORDER BY [j].[BoardName]
+ 2022-09-26 17:29:48,381  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.Divisions, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:48,386  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobBoardDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:48,404  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.JobBoardDetailsController.GetJobBoardDetails (TemPositions.IntelliStaff.Web) in 559.9108ms
+ 2022-09-26 17:29:48,412  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.JobBoardDetailsController.GetJobBoardDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:48,425  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/JobBoardDetails/GetJobBoardDetails application/json - - 200 1809 application/json;+charset=utf-8 731.8117ms
+ 2022-09-26 17:29:48,475  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.DivisionsController.GetDivisions (TemPositions.IntelliStaff.Web) in 704.8702ms
+ 2022-09-26 17:29:48,508  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.WorkingListController.GetWorkingList (TemPositions.IntelliStaff.Web) in 1021.6132ms
+ 2022-09-26 17:29:48,516  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.DivisionsController.GetDivisions (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:48,558  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.WorkingListController.GetWorkingList (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:48,570  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Divisions/GetDivisions application/json - - 200 102018 application/json;+charset=utf-8 970.2852ms
+ 2022-09-26 17:29:48,597  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/WorkingList/GetWorkingList?UserId=1997 application/json 2 - 200 108470 application/json;+charset=utf-8 1439.0372ms
+ 2022-09-26 17:29:48,800  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (466ms) [Parameters=[@__ToDateTime_0='?' (DbType = DateTime2), @__ToDateTime_1='?' (DbType = DateTime2), @__ToInt32_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [a].[Id], [a].[FirstName], COALESCE([a].[SubmitDateTime], '0001-01-01T00:00:00.0000000') AS [SubmitDate]
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[StatusType]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+WHERE (((((((([a].[DivisionId] = [a].[DivisionId]) OR [a].[DivisionId] IS NULL) AND (([a].[SubSourceID] = [a].[SubSourceID]) OR [a].[SubSourceID] IS NULL)) AND (([a].[FirstName] = N'') OR ([a].[FirstName] IS NOT NULL AND (LEFT([a].[FirstName], LEN([a].[FirstName])) = [a].[FirstName])))) AND (([a].[LastName] = N'') OR ([a].[LastName] IS NOT NULL AND (LEFT([a].[LastName], LEN([a].[LastName])) = [a].[LastName])))) AND (([a].[Email] = N'') OR ([a].[Email] IS NOT NULL AND (LEFT([a].[Email], LEN([a].[Email])) = [a].[Email])))) AND (([a].[SubmitDateTime] >= @__ToDateTime_0) AND ([a].[SubmitDateTime] <= @__ToDateTime_1))) AND ([a].[RecordStatus] = @__ToInt32_2)) AND (([t].[StatusType] <> 4) OR [t].[StatusType] IS NULL)
+ORDER BY COALESCE([a].[SubmitDateTime], '0001-01-01T00:00:00.0000000') DESC
+OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+ 2022-09-26 17:29:49,102  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='60000']
+DELETE FROM ApplicantSearchMeta WHERE ReferenceKey = 'ebb8e34c-f4fa-4d24-b08c-7d340d42beaa'
+ 2022-09-26 17:29:54,029  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4,911ms) [Parameters=[@__8__locals1_objRequest_UserId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='60000']
+SELECT [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N''), [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], (
+    SELECT TOP(1) [i].[unique_resume_id]
+    FROM [ICU_Resume_queue] AS [i]
+    WHERE (([i].[NewApplicantId] = [a].[Id]) AND ([a].[Id] <> 0)) AND ([i].[response_result] = N'Success')), COALESCE((
+    SELECT TOP(1) [i0].[is_process]
+    FROM [ICU_Resume_queue] AS [i0]
+    CROSS APPLY (
+        SELECT [i1].[queue_file_id], [i1].[file], [i1].[file_extension], [i1].[file_name]
+        FROM [icu_resume_queue_file] AS [i1]
+        WHERE ((([i0].[is_process] = 1) AND ([i0].[applicant_id] = [a].[OldApplicantId])) AND (([a].[OldApplicantId] <> 0) OR [a].[OldApplicantId] IS NULL)) AND ([i0].[id] = [i1].[queue_file_id])
+    ) AS [t0]), 0), 0, [a0].[Id], [j].[JobPostId], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t1].[RecruitingStageId], [t1].[ParentStageName], [t2].[RecruitingStageId], [t2].[RecrutingStage], [t2].[RecruitingSubStageId], [t2].[IsRecruitingStageCompleted], [t2].[CreatedOn], [t2].[UserName], [t3].[WorkingListName], [t4].[Name], (
+    SELECT TOP(1) [u0].[LoginTime]
+    FROM [UserLoginInfo] AS [u0]
+    WHERE [u0].[UserId] = @__8__locals1_objRequest_UserId_1
+    ORDER BY [u0].[Id] DESC), CASE
+    WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END, GETDATE(), [a0].[SubSourceName]
+FROM [Applicant] AS [a]
+INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+LEFT JOIN [workinglistitem] AS [w] ON [a].[CandidateId] = [w].[CandidateID]
+OUTER APPLY (
+    SELECT [c].[Cand_ID]
+    FROM [Can_Prof_Gen] AS [c]
+    WHERE (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL) AND ([a].[CandidateId] = [c].[Cand_ID])
+) AS [t]
+OUTER APPLY (
+    SELECT DISTINCT [r].[RecruitingStageTypeId] AS [RecruitingStageId], [r0].[StageName] AS [ParentStageName]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecruitingStageType] AS [r0] ON [r].[RecruitingStageTypeId] = [r0].[RecruitingStageTypeId]
+    WHERE [r].[ApplicantId] = [a].[Id]
+) AS [t1]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r3].[SubStageName] AS [RecrutingStage], [r2].[RecruitingSubStageId], [r1].[IsRecruitingStageCompleted], [r1].[CreatedOn], [u].[Name] AS [UserName]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r2] ON [r1].[Id] = [r2].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r3] ON [r2].[RecruitingSubStageId] = [r3].[Id]
+    INNER JOIN [User_Names] AS [u] ON [r1].[CreatedBy] = [u].[User_ID]
+    WHERE [r1].[ApplicantId] = [a].[Id]
+) AS [t2]
+OUTER APPLY (
+    SELECT DISTINCT [w1].[WorkingListName]
+    FROM [workinglistitem] AS [w0]
+    INNER JOIN [WorkingListNew] AS [w1] ON [w0].[WorkingListId] = [w1].[WorkingListId]
+    WHERE [w0].[CandidateID] = [a].[CandidateId]
+) AS [t3]
+OUTER APPLY (
+    SELECT DISTINCT [c1].[Name]
+    FROM [Campaign_Invitations] AS [c0]
+    INNER JOIN [Campaign] AS [c1] ON [c0].[campaign_id] = [c1].[Id]
+    WHERE [c0].[applicant_id] = [a].[OldApplicantId]
+) AS [t4]
+WHERE [a].[Id] IN (497584, 497583, 497582, 497581, 497580, 497579, 497578, 497577, 497576, 497575, 497574, 497573, 497572, 497571, 497570, 497569, 497568, 497567, 497567, 497567, 497566, 497565, 497564, 497563, 497562)
+ORDER BY [a].[SubmitDateTime] DESC, [a].[Id], [a0].[Id], [j].[JobPostId], [d].[Div_ID], [j0].[JobBoardId], [w].[WorkingListItemId], [t].[Cand_ID], [t1].[RecruitingStageId], [t1].[ParentStageName], [t2].[RecruitingStageId], [t2].[RecrutingStage], [t2].[RecruitingSubStageId], [t2].[IsRecruitingStageCompleted], [t2].[CreatedOn], [t2].[UserName], [t3].[WorkingListName]
+ 2022-09-26 17:29:54,288  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (246ms) [Parameters=[], CommandType='Text', CommandTimeout='60000']
+DELETE FROM ApplicantSearchMeta WHERE ReferenceKey = 'ebb8e34c-f4fa-4d24-b08c-7d340d42beaa'
+ 2022-09-26 17:29:54,292  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:54,324  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web) in 6578.3925ms
+ 2022-09-26 17:29:54,371  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId - -
+ 2022-09-26 17:29:54,385  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId - -
+ 2022-09-26 17:29:54,389  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetSovrenResume?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - -
+ 2022-09-26 17:29:54,393  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetJobPostApplicantAdvanceSerachDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,402  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,406  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,415  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetJobPostApplicantAdvanceSerachDetails application/json 324 - 200 26137 application/json;+charset=utf-8 7367.8722ms
+ 2022-09-26 17:29:54,421  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId - - - 204 - - 86.5502ms
+ 2022-09-26 17:29:54,425  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetSovrenResume?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - - - 204 - - 93.0555ms
+ 2022-09-26 17:29:54,409  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,433  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetCandidateAddtionalDetailsByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - -
+ 2022-09-26 17:29:54,438  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 - -
+ 2022-09-26 17:29:54,446  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=3404 - -
+ 2022-09-26 17:29:54,473  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497584 - -
+ 2022-09-26 17:29:54,480  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId - - - 204 - - 117.9792ms
+ 2022-09-26 17:29:54,493  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,520  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,529  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,535  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=3404 - - - 204 - - 87.3139ms
+ 2022-09-26 17:29:54,541  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497584 - - - 204 - - 91.3785ms
+ 2022-09-26 17:29:54,558  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 - - - 204 - - 118.9197ms
+ 2022-09-26 17:29:54,565  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Resume/GetSovrenResume?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json -
+ 2022-09-26 17:29:54,568  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId application/json 89
+ 2022-09-26 17:29:54,593  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=3404 application/json 2
+ 2022-09-26 17:29:54,554  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId application/json 348
+ 2022-09-26 17:29:54,602  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,606  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,614  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,657  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:54,674  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:54,677  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetSovrenResume (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,686  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:54,695  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,707  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetSovrenResume", controller = "Resume", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSovrenResume(System.String, Int32) on controller TemPositions.IntelliStaff.Web.Api.ResumeController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:54,720  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetNotesDetailsByApplicantId", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNotesDetailsByApplicantId(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantNotesRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:54,727  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,739  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,745  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,754  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantJobDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantJobDetails(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:54,765  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:54,769  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:54,781  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,792  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetCandidateAddtionalDetailsByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - - - 204 - - 414.7592ms
+ 2022-09-26 17:29:54,815  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantDetailsByApplicantId", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantDetailsByApplicantId(TemPositions.IntelliStaff.Core.ApplicantAggregate.RecruitingStageInput) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:54,842  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497584 application/json -
+ 2022-09-26 17:29:54,869  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:54,884  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,888  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetCandidateDescriptionByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - -
+ 2022-09-26 17:29:54,965  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:54,975  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:54,991  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:54,998  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetCandidateDescriptionByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - - - 204 - - 645.4017ms
+ 2022-09-26 17:29:55,003  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantLogo", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantLogo(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:55,005  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 application/json -
+ 2022-09-26 17:29:55,050  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:55,084  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:55,088  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:55,093  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,104  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetNoteCategories", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNoteCategories(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:55,109  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:29:55,156  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (362ms) [Parameters=[@__JobPostId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Email], [d].[Division], [u].[Phone], [j5].[JobLevel] AS [JObLevel], [j4].[SubCategory] AS [JObSubCategory], [j3].[Category] AS [JobCategory], [j1].[Responsibility] AS [Responsibilities], [j1].[Description], [j0].[JobPostId] AS [OrderId], [e].[EducationLevel], [l].[Location_Name] AS [JobLocation], [j].[JobTitle], [u].[Name] AS [EnteredBy], [s].[SkillName] AS [SkillSet]
+FROM [JobPostDetails] AS [j]
+LEFT JOIN [JobPostCategoryMapping] AS [j0] ON [j].[JobPostId] = [j0].[JobPostId]
+LEFT JOIN [JobPostDescription] AS [j1] ON [j].[JobPostId] = [j1].[JobPostId]
+LEFT JOIN [Divisions] AS [d] ON [j].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobPostSkills] AS [j2] ON [j].[JobPostId] = [j2].[Id]
+LEFT JOIN [SkillSet] AS [s] ON [j2].[SkillId] = [s].[Id]
+LEFT JOIN [JobCategory] AS [j3] ON [j0].[CategoryId] = [j3].[Id]
+LEFT JOIN [JobSubCategory] AS [j4] ON [j0].[SubCategoryId] = [j4].[Id]
+LEFT JOIN [JobLevel] AS [j5] ON [j].[JobLevelId] = [j5].[Id]
+LEFT JOIN [EducationLevel] AS [e] ON [j].[EducationlevelId] = [e].[Id]
+LEFT JOIN [Locations] AS [l] ON [j].[JobSearchLocationId] = [l].[Location_Id]
+LEFT JOIN [User_Names] AS [u] ON [j].[CreatedBy] = [u].[User_ID]
+WHERE [j].[JobPostId] = @__JobPostId_0
+ 2022-09-26 17:29:55,159  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobDetailsResult, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:55,202  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web) in 405.23ms
+ 2022-09-26 17:29:55,216  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,223  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=3404 application/json 2 - 200 2724 application/json;+charset=utf-8 651.6532ms
+ 2022-09-26 17:29:55,235  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Resume/GetCandidateAddtionalDetailsByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json -
+ 2022-09-26 17:29:55,248  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:55,257  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:55,266  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateAddtionalDetailsByDocumentId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,273  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetCandidateAddtionalDetailsByDocumentId", controller = "Resume", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCandidateAddtionalDetailsByDocumentId(System.String) on controller TemPositions.IntelliStaff.Web.Api.ResumeController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:55,335  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (244ms) [Parameters=[@__ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COALESCE([a1].[LogoPath], N'') AS [LogoPath], [t].[SubSourceName]
+FROM [Applicant] AS [a]
+CROSS APPLY (
+    SELECT [a0].[ApplicantSourceId], [a0].[SubSourceName]
+    FROM [ApplicantSubSource] AS [a0]
+    WHERE ([a].[Id] = @__ApplicantId_0) AND ([a].[SubSourceID] = [a0].[Id])
+) AS [t]
+LEFT JOIN [ApplicantLogo] AS [a1] ON [t].[ApplicantSourceId] = [a1].[JobBoardId]
+ 2022-09-26 17:29:55,338  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicanLogoDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:55,344  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web) in 334.8068ms
+ 2022-09-26 17:29:55,351  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,365  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497584 application/json - - 200 52 application/json;+charset=utf-8 561.0405ms
+ 2022-09-26 17:29:55,379  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Resume/GetCandidateDescriptionByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json -
+ 2022-09-26 17:29:55,420  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (267ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[master_category_id], [n].[master_category_type], [n].[is_active], [n].[category], [n0].[child_category_id], [n0].[category], [n0].[master_category_id], [n0].[base_point_value], [n0].[description]
+FROM [note_categories_master] AS [n]
+LEFT JOIN [note_categories_child] AS [n0] ON [n].[master_category_id] = [n0].[master_category_id]
+ORDER BY [n].[master_category_id]
+ 2022-09-26 17:29:55,444  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.NoteCategoriesData, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:29:55,467  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'null'.
+ 2022-09-26 17:29:55,478  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (266ms) [Parameters=[@__objRequest_RecruitingStageTypeId_0='?' (DbType = Int32), @__objRequest_ApplicantId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [RecuritmentStageDetail] AS [r]
+WHERE ([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_0) AND ([r].[ApplicantId] = @__objRequest_ApplicantId_1)
+ 2022-09-26 17:29:55,495  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web) in 742.498ms
+ 2022-09-26 17:29:55,501  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:55,536  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,539  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web) in 347.1855ms
+ 2022-09-26 17:29:55,542  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:55,550  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId application/json 89 - 204 0 - 982.0371ms
+ 2022-09-26 17:29:55,557  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,562  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateDescriptionByDocumentId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:55,567  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 application/json - - 200 12379 application/json;+charset=utf-8 562.8378ms
+ 2022-09-26 17:29:55,595  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetCandidateDescriptionByDocumentId", controller = "Resume", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCandidateDescriptionByDocumentId(System.String) on controller TemPositions.IntelliStaff.Web.Api.ResumeController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:56,227  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (738ms) [Parameters=[@__p_2='?' (DbType = Int32), @__objRequest_ApplicantId_0='?' (DbType = Int32), @__objRequest_RecruitingStageTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(@__p_2) [r].[Id], [r].[ApplicantId], [r].[CandidateId], [r].[Comments], [r].[CreatedBy], [r].[CreatedOn], [r].[IsRecruitingStageCompleted], [r].[ModifiedBy], [r].[ModifiedOn], [r].[RecordStatus], [r].[RecruitingStageTypeId], [r].[TenantId]
+FROM [RecuritmentStageDetail] AS [r]
+WHERE ([r].[ApplicantId] = @__objRequest_ApplicantId_0) AND ([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_1)
+ 2022-09-26 17:29:57,327  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (498ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecuritmentSubStageDetail] ([Comments], [CreatedBy], [CreatedOn], [EntityId], [EntityTypeId], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecordStatus], [RecruitingStageId], [RecruitingSubStageId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [RecuritmentSubStageDetail]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-09-26 17:29:57,573  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'TemPositions.IntelliStaff.Core.ApplicantAggregate.CandidateDetails'.
+ 2022-09-26 17:29:57,580  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateDescriptionByDocumentId (TemPositions.IntelliStaff.Web) in 1977.101ms
+ 2022-09-26 17:29:57,587  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateDescriptionByDocumentId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:57,592  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Resume/GetCandidateDescriptionByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json - - 200 6139 application/json;+charset=utf-8 2221.4366ms
+ 2022-09-26 17:29:58,830  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'TemPositions.IntelliStaff.Core.ApplicantAggregate.CanditateAdditionalDetails'.
+ 2022-09-26 17:29:58,856  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateAddtionalDetailsByDocumentId (TemPositions.IntelliStaff.Web) in 3573.8032ms
+ 2022-09-26 17:29:58,861  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetCandidateAddtionalDetailsByDocumentId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:58,865  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Resume/GetCandidateAddtionalDetailsByDocumentId?DocumentId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json - - 200 79342 application/json;+charset=utf-8 3636.7842ms
+ 2022-09-26 17:29:59,568  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'TemPositions.IntelliStaff.Core.ApplicantAggregate.MonsterResumeResponse'.
+ 2022-09-26 17:29:59,644  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ResumeController.GetSovrenResume (TemPositions.IntelliStaff.Web) in 4910.9502ms
+ 2022-09-26 17:29:59,648  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetSovrenResume (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:59,652  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Resume/GetSovrenResume?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json - - 200 189768 application/json;+charset=utf-8 5095.5467ms
+ 2022-09-26 17:29:59,657  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetResumeHTML?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - -
+ 2022-09-26 17:29:59,664  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:59,671  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Resume/GetResumeHTML?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E - - - 204 - - 11.6202ms
+ 2022-09-26 17:29:59,676  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Resume/GetResumeHTML?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json -
+ 2022-09-26 17:29:59,680  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:29:59,685  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:29:59,690  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetResumeHTML (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:29:59,694  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetResumeHTML", controller = "Resume", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetResumeHTML(System.String) on controller TemPositions.IntelliStaff.Web.Api.ResumeController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:29:59,959  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2,595ms) [Parameters=[@__p_2='?' (DbType = Int32), @__objRequest_UserId_1='?' (DbType = Int32), @__objRequest_ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[FirstName], [t].[LastName], [t].[DivisionId], [t].[Division], [t].[c], [t].[Email], [t].[JobTitle], [t].[City], [t].[State], [t].[ZipCode], [t].[Address], [t].[CellPhoneNumber], [t].[HomePhoneNumber], [t].[CandidateId], [t].[JobPostId], [t].[SubmitDateTime], [t].[APISmallLogoPath], [t].[c0], [t].[JobPostId0], [t].[Div_ID], [t].[DivisionID0], [t].[Id0], [t].[JobBoardId], [t].[id1], [t6].[JobTitle], [t6].[JobDate], [t6].[Id], [t6].[Id0], [t6].[JobBoardId], [t6].[JobPostId], [t].[c1], [t7].[RecruitingStageId], [t7].[ParentStageName], [t7].[IsRecruitingStageCompleted], [t8].[RecruitingStageId], [t8].[RecrutingStage], [t8].[RecruitingSubStageId], [t8].[IsRecruitingStageCompleted], [t8].[CreatedOn], [t8].[UserName], [t8].[Comments], [t].[c2], [t9].[WorkingListName], [t10].[Name], [t].[c3], [t].[c4], [t].[c5], [t].[c6], [t].[SubSourceName], [t].[c7], [t].[c8], [t].[c9]
+FROM (
+    SELECT TOP(@__p_2) [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], [d0].[APISmallLogoPath], (
+        SELECT TOP(1) [i0].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i0]
+        WHERE ([i0].[NewApplicantId] = [a].[Id]) AND ([a].[Id] <> 0)) AS [c0], (
+        SELECT COUNT(*)
+        FROM [Applicant] AS [a1]
+        WHERE ([a1].[Email] = [a].[Email]) OR ([a1].[Email] IS NULL AND [a].[Email] IS NULL)) AS [c1], CASE
+        WHEN [i].[is_process] = 1 THEN CASE
+            WHEN [i].[response_result] = N'Success' THEN 1
+            ELSE 2
+        END
+        ELSE 3
+    END AS [c2], (
+        SELECT TOP(1) [i1].[InterviewDate]
+        FROM [Interview] AS [i1]
+        WHERE 0 = 1
+        ORDER BY [i1].[Id] DESC) AS [c3], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__objRequest_UserId_1
+        ORDER BY [u].[Id] DESC) AS [c4], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c5], GETDATE() AS [c6], [a0].[SubSourceName], COALESCE((
+        SELECT TOP(1) [t1].[Id]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e]
+        LEFT JOIN (
+            SELECT [c].[Cand_ID], [c].[Address], [c].[agent_i9_verification_req], [c].[AgreementType], [c].[Alt_Phone], [c].[aoc_referral], [c].[app_submit_date], [c].[Beep], [c].[CFHC], [c].[CFHC_Expiration], [c].[CandidateType], [c].[cell_carrier_id], [c].[City], [c].[Contact_Name], [c].[Contact_Phone], [c].[Contact_Relationship], [c].[Cre_Auto_Emails], [c].[CreatedBy], [c].[CreatedOn], [c].[Crime], [c].[DNR_Reas_id], [c].[DOB], [c].[Date_Avail], [c].[date_enter], [c].[DirectDep], [c].[div_id], [c].[Dnr_Checked], [c].[Dnr_Desc], [c].[E_Mail], [c].[EMp_SINCE], [c].[E_Rating], [c].[EVerify_Status], [c].[Fax_Phone], [c].[First_Name], [c].[Health_Sup], [c].[Home_Phone], [c].[How_Heard_ID], [c].[I9_Compl], [c].[I9_Verified], [c].[In_Empowerment_Zone], [c].[independent_contractor], [c].[IsAdmittedInUS], [c].[is_clinical], [c].[is_perm_candidate], [c].[Last_Name], [c].[LastTimeslipWE], [c].[liability_agree_datetime], [c].[Max_Pay], [c].[max_education_level], [c].[Middle], [c].[Min_Pay], [c].[ModifiedBy], [c].[ModifiedOn], [c].[NeedUpdated], [c].[Net_Profit], [c].[no_ivr_calls], [c].[no_paystub], [c].[occ_year_of_exp], [c].[OnBoardingSubStatus], [c].[OnBoardingType], [c].[OriginalApplicantId], [c].[PJB_Contact_Method], [c].[payroll_card_agree_timestamp], [c].[pjb_contact_text], [c].[pjb_contact_email], [c].[pjb_contact_ivr_call], [c].[pos_seeking], [c].[REp], [c].[rcv_ivr], [c].[recruiter_id], [c].[Referral_Source], [c].[ref_id], [c].[ref_sub_source_id], [c].[rn_number], [c].[SSN], [c].[send_text_msgs], [c].[sf_hc_waiver], [c].[Spouse], [c].[State], [c].[StatusType], [c].[SubStatusType], [c].[TenantId], [c].[Text_Msg_Email], [c].[Un_Skill], [c].[Unempl], [c].[update_mobilenumber_date], [c].[wotc_printed], [c].[Zip], [c].[apt], [c].[fromast], [c].[hot], [c].[notes], [c].[office], [c].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c]
+            WHERE ([c].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t0] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c0].[Id], [c0].[Name]
+            FROM [CandidateStatus] AS [c0]
+            WHERE (([t0].[StatusType] <> 0) OR [t0].[StatusType] IS NULL) AND ([t0].[StatusType] = [c0].[Id])
+        ) AS [t1]), 0) AS [c7], (
+        SELECT TOP(1) [t3].[Name]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e0]
+        LEFT JOIN (
+            SELECT [c1].[Cand_ID], [c1].[Address], [c1].[agent_i9_verification_req], [c1].[AgreementType], [c1].[Alt_Phone], [c1].[aoc_referral], [c1].[app_submit_date], [c1].[Beep], [c1].[CFHC], [c1].[CFHC_Expiration], [c1].[CandidateType], [c1].[cell_carrier_id], [c1].[City], [c1].[Contact_Name], [c1].[Contact_Phone], [c1].[Contact_Relationship], [c1].[Cre_Auto_Emails], [c1].[CreatedBy], [c1].[CreatedOn], [c1].[Crime], [c1].[DNR_Reas_id], [c1].[DOB], [c1].[Date_Avail], [c1].[date_enter], [c1].[DirectDep], [c1].[div_id], [c1].[Dnr_Checked], [c1].[Dnr_Desc], [c1].[E_Mail], [c1].[EMp_SINCE], [c1].[E_Rating], [c1].[EVerify_Status], [c1].[Fax_Phone], [c1].[First_Name], [c1].[Health_Sup], [c1].[Home_Phone], [c1].[How_Heard_ID], [c1].[I9_Compl], [c1].[I9_Verified], [c1].[In_Empowerment_Zone], [c1].[independent_contractor], [c1].[IsAdmittedInUS], [c1].[is_clinical], [c1].[is_perm_candidate], [c1].[Last_Name], [c1].[LastTimeslipWE], [c1].[liability_agree_datetime], [c1].[Max_Pay], [c1].[max_education_level], [c1].[Middle], [c1].[Min_Pay], [c1].[ModifiedBy], [c1].[ModifiedOn], [c1].[NeedUpdated], [c1].[Net_Profit], [c1].[no_ivr_calls], [c1].[no_paystub], [c1].[occ_year_of_exp], [c1].[OnBoardingSubStatus], [c1].[OnBoardingType], [c1].[OriginalApplicantId], [c1].[PJB_Contact_Method], [c1].[payroll_card_agree_timestamp], [c1].[pjb_contact_text], [c1].[pjb_contact_email], [c1].[pjb_contact_ivr_call], [c1].[pos_seeking], [c1].[REp], [c1].[rcv_ivr], [c1].[recruiter_id], [c1].[Referral_Source], [c1].[ref_id], [c1].[ref_sub_source_id], [c1].[rn_number], [c1].[SSN], [c1].[send_text_msgs], [c1].[sf_hc_waiver], [c1].[Spouse], [c1].[State], [c1].[StatusType], [c1].[SubStatusType], [c1].[TenantId], [c1].[Text_Msg_Email], [c1].[Un_Skill], [c1].[Unempl], [c1].[update_mobilenumber_date], [c1].[wotc_printed], [c1].[Zip], [c1].[apt], [c1].[fromast], [c1].[hot], [c1].[notes], [c1].[office], [c1].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c1]
+            WHERE ([c1].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t2] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c2].[Id], [c2].[Name]
+            FROM [CandidateStatus] AS [c2]
+            WHERE (([t2].[StatusType] <> 0) OR [t2].[StatusType] IS NULL) AND ([t2].[StatusType] = [c2].[Id])
+        ) AS [t3]) AS [c8], (
+        SELECT TOP(1) [t5].[Name]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e1]
+        LEFT JOIN (
+            SELECT [c3].[Cand_ID], [c3].[Address], [c3].[agent_i9_verification_req], [c3].[AgreementType], [c3].[Alt_Phone], [c3].[aoc_referral], [c3].[app_submit_date], [c3].[Beep], [c3].[CFHC], [c3].[CFHC_Expiration], [c3].[CandidateType], [c3].[cell_carrier_id], [c3].[City], [c3].[Contact_Name], [c3].[Contact_Phone], [c3].[Contact_Relationship], [c3].[Cre_Auto_Emails], [c3].[CreatedBy], [c3].[CreatedOn], [c3].[Crime], [c3].[DNR_Reas_id], [c3].[DOB], [c3].[Date_Avail], [c3].[date_enter], [c3].[DirectDep], [c3].[div_id], [c3].[Dnr_Checked], [c3].[Dnr_Desc], [c3].[E_Mail], [c3].[EMp_SINCE], [c3].[E_Rating], [c3].[EVerify_Status], [c3].[Fax_Phone], [c3].[First_Name], [c3].[Health_Sup], [c3].[Home_Phone], [c3].[How_Heard_ID], [c3].[I9_Compl], [c3].[I9_Verified], [c3].[In_Empowerment_Zone], [c3].[independent_contractor], [c3].[IsAdmittedInUS], [c3].[is_clinical], [c3].[is_perm_candidate], [c3].[Last_Name], [c3].[LastTimeslipWE], [c3].[liability_agree_datetime], [c3].[Max_Pay], [c3].[max_education_level], [c3].[Middle], [c3].[Min_Pay], [c3].[ModifiedBy], [c3].[ModifiedOn], [c3].[NeedUpdated], [c3].[Net_Profit], [c3].[no_ivr_calls], [c3].[no_paystub], [c3].[occ_year_of_exp], [c3].[OnBoardingSubStatus], [c3].[OnBoardingType], [c3].[OriginalApplicantId], [c3].[PJB_Contact_Method], [c3].[payroll_card_agree_timestamp], [c3].[pjb_contact_text], [c3].[pjb_contact_email], [c3].[pjb_contact_ivr_call], [c3].[pos_seeking], [c3].[REp], [c3].[rcv_ivr], [c3].[recruiter_id], [c3].[Referral_Source], [c3].[ref_id], [c3].[ref_sub_source_id], [c3].[rn_number], [c3].[SSN], [c3].[send_text_msgs], [c3].[sf_hc_waiver], [c3].[Spouse], [c3].[State], [c3].[StatusType], [c3].[SubStatusType], [c3].[TenantId], [c3].[Text_Msg_Email], [c3].[Un_Skill], [c3].[Unempl], [c3].[update_mobilenumber_date], [c3].[wotc_printed], [c3].[Zip], [c3].[apt], [c3].[fromast], [c3].[hot], [c3].[notes], [c3].[office], [c3].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c3]
+            WHERE ([c3].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t4] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c4].[Id], [c4].[Name], [c4].[StatusId]
+            FROM [CandidateSubStatus] AS [c4]
+            WHERE (([t4].[SubStatusType] <> 0) OR [t4].[SubStatusType] IS NULL) AND ([t4].[SubStatusType] = [c4].[Id])
+        ) AS [t5]) AS [c9], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [d0].[DivisionID] AS [DivisionID0], [a0].[Id] AS [Id0], [j0].[JobBoardId], [i].[id] AS [id1], [a].[OldApplicantId]
+    FROM [Applicant] AS [a]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [DivisionTheme] AS [d0] ON [a].[DivisionId] = [d0].[DivisionID]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [ICU_Resume_queue] AS [i] ON [a].[Id] = [i].[applicant_id]
+    WHERE [a].[Id] = @__objRequest_ApplicantId_0
+    ORDER BY [a].[SubmitDateTime] DESC
+) AS [t]
+LEFT JOIN (
+    SELECT [j2].[JobTitle], CONVERT(varchar(100), [a2].[SubmitDateTime]) AS [JobDate], [a2].[Id], [a3].[Id] AS [Id0], [j1].[JobBoardId], [j2].[JobPostId], [a2].[Email]
+    FROM [Applicant] AS [a2]
+    INNER JOIN [ApplicantSubSource] AS [a3] ON [a2].[SubSourceID] = [a3].[Id]
+    LEFT JOIN [JobBoardDetails] AS [j1] ON [a3].[ApplicantSourceId] = [j1].[JobBoardId]
+    LEFT JOIN [JobPostDetails] AS [j2] ON [a2].[JobPostId] = [j2].[JobPostId]
+) AS [t6] ON [t].[Email] = [t6].[Email]
+OUTER APPLY (
+    SELECT DISTINCT [r].[RecruitingStageTypeId] AS [RecruitingStageId], [r0].[StageName] AS [ParentStageName], [r].[IsRecruitingStageCompleted]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecruitingStageType] AS [r0] ON [r].[RecruitingStageTypeId] = [r0].[RecruitingStageTypeId]
+    WHERE [r].[ApplicantId] = [t].[Id]
+) AS [t7]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r3].[SubStageName] AS [RecrutingStage], [r2].[RecruitingSubStageId], [r1].[IsRecruitingStageCompleted], [r1].[CreatedOn], [u0].[Name] AS [UserName], [r1].[Comments]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r2] ON [r1].[Id] = [r2].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r3] ON [r2].[RecruitingSubStageId] = [r3].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r1].[CreatedBy] = [u0].[User_ID]
+    WHERE [r1].[ApplicantId] = [t].[Id]
+) AS [t8]
+OUTER APPLY (
+    SELECT DISTINCT [w0].[WorkingListName]
+    FROM [workinglistitem] AS [w]
+    INNER JOIN [WorkingListNew] AS [w0] ON [w].[WorkingListId] = [w0].[WorkingListId]
+    WHERE [w].[CandidateID] = [t].[CandidateId]
+) AS [t9]
+OUTER APPLY (
+    SELECT DISTINCT [c6].[Name]
+    FROM [Campaign_Invitations] AS [c5]
+    INNER JOIN [Campaign] AS [c6] ON [c5].[campaign_id] = [c6].[Id]
+    WHERE [c5].[applicant_id] = [t].[OldApplicantId]
+) AS [t10]
+ORDER BY [t].[SubmitDateTime] DESC, [t].[Id], [t].[JobPostId0], [t].[Div_ID], [t].[DivisionID0], [t].[Id0], [t].[JobBoardId], [t].[id1], [t6].[Id], [t6].[Id0], [t6].[JobBoardId], [t6].[JobPostId], [t7].[RecruitingStageId], [t7].[ParentStageName], [t7].[IsRecruitingStageCompleted], [t8].[RecruitingStageId], [t8].[RecrutingStage], [t8].[RecruitingSubStageId], [t8].[IsRecruitingStageCompleted], [t8].[CreatedOn], [t8].[UserName], [t8].[Comments], [t9].[WorkingListName]
+ 2022-09-26 17:30:00,216  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:30:00,233  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web) in 5396.6192ms
+ 2022-09-26 17:30:00,238  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:30:00,262  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId application/json 348 - 200 1425 application/json;+charset=utf-8 5752.7734ms
+ 2022-09-26 17:30:01,103  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'TemPositions.IntelliStaff.Core.ApplicantAggregate.ResumeHTMLText'.
+ 2022-09-26 17:30:01,138  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ResumeController.GetResumeHTML (TemPositions.IntelliStaff.Web) in 1438.2687ms
+ 2022-09-26 17:30:01,142  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ResumeController.GetResumeHTML (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:30:01,148  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Resume/GetResumeHTML?ResumeId=1D5BAC26-7259-46C0-AA41-C3F6A651E39E application/json - - 200 92952 application/json;+charset=utf-8 1471.5249ms
+ 2022-09-26 17:31:16,907  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId - -
+ 2022-09-26 17:31:16,914  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 - -
+ 2022-09-26 17:31:16,922  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=14 - -
+ 2022-09-26 17:31:16,925  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:16,929  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId - -
+ 2022-09-26 17:31:16,957  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:16,987  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 - - - 204 - - 22.9174ms
+ 2022-09-26 17:31:17,018  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,049  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=14 - - - 204 - - 76.4465ms
+ 2022-09-26 17:31:17,081  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497583 - -
+ 2022-09-26 17:31:17,088  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId - - - 204 - - 145.9987ms
+ 2022-09-26 17:31:17,126  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,156  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 application/json -
+ 2022-09-26 17:31:17,186  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=14 application/json 2
+ 2022-09-26 17:31:17,217  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497583 - - - 204 - - 138.0839ms
+ 2022-09-26 17:31:17,249  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,278  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,308  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:31:17,339  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId application/json 348
+ 2022-09-26 17:31:17,369  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,399  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:31:17,429  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,460  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,490  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,520  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 OPTIONS http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId - - - 204 - - 502.1436ms
+ 2022-09-26 17:31:17,552  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetNoteCategories", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNoteCategories(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:31:17,554  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantJobDetails", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantJobDetails(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:31:17,583  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:31:17,590  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:31:17,600  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,603  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:31:17,606  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId application/json 89
+ 2022-09-26 17:31:17,610  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantDetailsByApplicantId", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantDetailsByApplicantId(TemPositions.IntelliStaff.Core.ApplicantAggregate.RecruitingStageInput) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:31:17,620  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,625  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 GET http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497583 application/json -
+ 2022-09-26 17:31:17,628  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:31:17,635  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:31:17,670  INFO Microsoft.AspNetCore.Cors.Infrastructure.CorsService.? [?] - MESSAGE: CORS policy execution successful.
+ 2022-09-26 17:31:17,675  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,681  INFO Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.? [?] - MESSAGE: Successfully validated the token.
+ 2022-09-26 17:31:17,716  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetNotesDetailsByApplicantId", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetNotesDetailsByApplicantId(TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicantNotesRequest) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:31:17,746  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,752  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "GetApplicantLogo", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetApplicantLogo(Int32) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-09-26 17:31:17,757  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-09-26 17:31:17,863  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (256ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[master_category_id], [n].[master_category_type], [n].[is_active], [n].[category], [n0].[child_category_id], [n0].[category], [n0].[master_category_id], [n0].[base_point_value], [n0].[description]
+FROM [note_categories_master] AS [n]
+LEFT JOIN [note_categories_child] AS [n0] ON [n].[master_category_id] = [n0].[master_category_id]
+ORDER BY [n].[master_category_id]
+ 2022-09-26 17:31:17,868  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.NoteCategoriesData, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:31:17,876  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web) in 290.3144ms
+ 2022-09-26 17:31:17,882  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNoteCategories (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,887  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetNoteCategories?TenantId=1 application/json - - 200 12379 application/json;+charset=utf-8 796.3116ms
+ 2022-09-26 17:31:17,892  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (273ms) [Parameters=[@__JobPostId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Email], [d].[Division], [u].[Phone], [j5].[JobLevel] AS [JObLevel], [j4].[SubCategory] AS [JObSubCategory], [j3].[Category] AS [JobCategory], [j1].[Responsibility] AS [Responsibilities], [j1].[Description], [j0].[JobPostId] AS [OrderId], [e].[EducationLevel], [l].[Location_Name] AS [JobLocation], [j].[JobTitle], [u].[Name] AS [EnteredBy], [s].[SkillName] AS [SkillSet]
+FROM [JobPostDetails] AS [j]
+LEFT JOIN [JobPostCategoryMapping] AS [j0] ON [j].[JobPostId] = [j0].[JobPostId]
+LEFT JOIN [JobPostDescription] AS [j1] ON [j].[JobPostId] = [j1].[JobPostId]
+LEFT JOIN [Divisions] AS [d] ON [j].[DivisionId] = [d].[Div_ID]
+LEFT JOIN [JobPostSkills] AS [j2] ON [j].[JobPostId] = [j2].[Id]
+LEFT JOIN [SkillSet] AS [s] ON [j2].[SkillId] = [s].[Id]
+LEFT JOIN [JobCategory] AS [j3] ON [j0].[CategoryId] = [j3].[Id]
+LEFT JOIN [JobSubCategory] AS [j4] ON [j0].[SubCategoryId] = [j4].[Id]
+LEFT JOIN [JobLevel] AS [j5] ON [j].[JobLevelId] = [j5].[Id]
+LEFT JOIN [EducationLevel] AS [e] ON [j].[EducationlevelId] = [e].[Id]
+LEFT JOIN [Locations] AS [l] ON [j].[JobSearchLocationId] = [l].[Location_Id]
+LEFT JOIN [User_Names] AS [u] ON [j].[CreatedBy] = [u].[User_ID]
+WHERE [j].[JobPostId] = @__JobPostId_0
+ 2022-09-26 17:31:17,896  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobDetailsResult, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:31:17,904  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web) in 313.6251ms
+ 2022-09-26 17:31:17,910  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantJobDetails (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:17,915  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantJobDetails?JobPostId=14 application/json 2 - 200 1829 application/json;+charset=utf-8 785.6399ms
+ 2022-09-26 17:31:18,014  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (247ms) [Parameters=[@__ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COALESCE([a1].[LogoPath], N'') AS [LogoPath], [t].[SubSourceName]
+FROM [Applicant] AS [a]
+CROSS APPLY (
+    SELECT [a0].[ApplicantSourceId], [a0].[SubSourceName]
+    FROM [ApplicantSubSource] AS [a0]
+    WHERE ([a].[Id] = @__ApplicantId_0) AND ([a].[SubSourceID] = [a0].[Id])
+) AS [t]
+LEFT JOIN [ApplicantLogo] AS [a1] ON [t].[ApplicantSourceId] = [a1].[JobBoardId]
+ 2022-09-26 17:31:18,018  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.ApplicanLogoDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-26 17:31:18,052  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web) in 267.3802ms
+ 2022-09-26 17:31:18,060  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantLogo (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:18,067  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 GET http://localhost:57678/api/Applicant/GetApplicantLogo?ApplicantId=497583 application/json - - 200 52 application/json;+charset=utf-8 440.1434ms
+ 2022-09-26 17:31:18,126  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (245ms) [Parameters=[@__objRequest_RecruitingStageTypeId_0='?' (DbType = Int32), @__objRequest_ApplicantId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [RecuritmentStageDetail] AS [r]
+WHERE ([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_0) AND ([r].[ApplicantId] = @__objRequest_ApplicantId_1)
+ 2022-09-26 17:31:18,263  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'null'.
+ 2022-09-26 17:31:18,267  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web) in 517.6796ms
+ 2022-09-26 17:31:18,271  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetNotesDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-26 17:31:18,281  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetNotesDetailsByApplicantId application/json 89 - 204 0 - 683.6535ms
+ 2022-09-26 17:31:18,742  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (316ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecuritmentStageDetail] ([ApplicantId], [CandidateId], [Comments], [CreatedBy], [CreatedOn], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecordStatus], [RecruitingStageTypeId], [TenantId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [RecuritmentStageDetail]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-09-26 17:31:19,263  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (261ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecuritmentSubStageDetail] ([Comments], [CreatedBy], [CreatedOn], [EntityId], [EntityTypeId], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecordStatus], [RecruitingStageId], [RecruitingSubStageId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [RecuritmentSubStageDetail]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-09-26 17:31:20,486  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (1,173ms) [Parameters=[@__p_2='?' (DbType = Int32), @__objRequest_UserId_1='?' (DbType = Int32), @__objRequest_ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[FirstName], [t].[LastName], [t].[DivisionId], [t].[Division], [t].[c], [t].[Email], [t].[JobTitle], [t].[City], [t].[State], [t].[ZipCode], [t].[Address], [t].[CellPhoneNumber], [t].[HomePhoneNumber], [t].[CandidateId], [t].[JobPostId], [t].[SubmitDateTime], [t].[APISmallLogoPath], [t].[c0], [t].[JobPostId0], [t].[Div_ID], [t].[DivisionID0], [t].[Id0], [t].[JobBoardId], [t].[id1], [t6].[JobTitle], [t6].[JobDate], [t6].[Id], [t6].[Id0], [t6].[JobBoardId], [t6].[JobPostId], [t].[c1], [t7].[RecruitingStageId], [t7].[ParentStageName], [t7].[IsRecruitingStageCompleted], [t8].[RecruitingStageId], [t8].[RecrutingStage], [t8].[RecruitingSubStageId], [t8].[IsRecruitingStageCompleted], [t8].[CreatedOn], [t8].[UserName], [t8].[Comments], [t].[c2], [t9].[WorkingListName], [t10].[Name], [t].[c3], [t].[c4], [t].[c5], [t].[c6], [t].[SubSourceName], [t].[c7], [t].[c8], [t].[c9]
+FROM (
+    SELECT TOP(@__p_2) [a].[Id], [a].[FirstName], [a].[LastName], [a].[DivisionId], [d].[Division], (COALESCE([a].[FirstName], N'') + N' ') + COALESCE([a].[LastName], N'') AS [c], [a].[Email], [j].[JobTitle], [a].[City], [a].[State], [a].[ZipCode], [a].[Address], [a].[CellPhoneNumber], [a].[HomePhoneNumber], [a].[CandidateId], [a].[JobPostId], [a].[SubmitDateTime], [d0].[APISmallLogoPath], (
+        SELECT TOP(1) [i0].[unique_resume_id]
+        FROM [ICU_Resume_queue] AS [i0]
+        WHERE ([i0].[NewApplicantId] = [a].[Id]) AND ([a].[Id] <> 0)) AS [c0], (
+        SELECT COUNT(*)
+        FROM [Applicant] AS [a1]
+        WHERE ([a1].[Email] = [a].[Email]) OR ([a1].[Email] IS NULL AND [a].[Email] IS NULL)) AS [c1], CASE
+        WHEN [i].[is_process] = 1 THEN CASE
+            WHEN [i].[response_result] = N'Success' THEN 1
+            ELSE 2
+        END
+        ELSE 3
+    END AS [c2], (
+        SELECT TOP(1) [i1].[InterviewDate]
+        FROM [Interview] AS [i1]
+        WHERE 0 = 1
+        ORDER BY [i1].[Id] DESC) AS [c3], (
+        SELECT TOP(1) [u].[LoginTime]
+        FROM [UserLoginInfo] AS [u]
+        WHERE [u].[UserId] = @__objRequest_UserId_1
+        ORDER BY [u].[Id] DESC) AS [c4], CASE
+        WHEN [a].[SubmitDateTime] IS NULL OR (CONVERT(varchar(100), [a].[SubmitDateTime]) LIKE N'') THEN CAST(1 AS bit)
+        ELSE CAST(0 AS bit)
+    END AS [c5], GETDATE() AS [c6], [a0].[SubSourceName], COALESCE((
+        SELECT TOP(1) [t1].[Id]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e]
+        LEFT JOIN (
+            SELECT [c].[Cand_ID], [c].[Address], [c].[agent_i9_verification_req], [c].[AgreementType], [c].[Alt_Phone], [c].[aoc_referral], [c].[app_submit_date], [c].[Beep], [c].[CFHC], [c].[CFHC_Expiration], [c].[CandidateType], [c].[cell_carrier_id], [c].[City], [c].[Contact_Name], [c].[Contact_Phone], [c].[Contact_Relationship], [c].[Cre_Auto_Emails], [c].[CreatedBy], [c].[CreatedOn], [c].[Crime], [c].[DNR_Reas_id], [c].[DOB], [c].[Date_Avail], [c].[date_enter], [c].[DirectDep], [c].[div_id], [c].[Dnr_Checked], [c].[Dnr_Desc], [c].[E_Mail], [c].[EMp_SINCE], [c].[E_Rating], [c].[EVerify_Status], [c].[Fax_Phone], [c].[First_Name], [c].[Health_Sup], [c].[Home_Phone], [c].[How_Heard_ID], [c].[I9_Compl], [c].[I9_Verified], [c].[In_Empowerment_Zone], [c].[independent_contractor], [c].[IsAdmittedInUS], [c].[is_clinical], [c].[is_perm_candidate], [c].[Last_Name], [c].[LastTimeslipWE], [c].[liability_agree_datetime], [c].[Max_Pay], [c].[max_education_level], [c].[Middle], [c].[Min_Pay], [c].[ModifiedBy], [c].[ModifiedOn], [c].[NeedUpdated], [c].[Net_Profit], [c].[no_ivr_calls], [c].[no_paystub], [c].[occ_year_of_exp], [c].[OnBoardingSubStatus], [c].[OnBoardingType], [c].[OriginalApplicantId], [c].[PJB_Contact_Method], [c].[payroll_card_agree_timestamp], [c].[pjb_contact_text], [c].[pjb_contact_email], [c].[pjb_contact_ivr_call], [c].[pos_seeking], [c].[REp], [c].[rcv_ivr], [c].[recruiter_id], [c].[Referral_Source], [c].[ref_id], [c].[ref_sub_source_id], [c].[rn_number], [c].[SSN], [c].[send_text_msgs], [c].[sf_hc_waiver], [c].[Spouse], [c].[State], [c].[StatusType], [c].[SubStatusType], [c].[TenantId], [c].[Text_Msg_Email], [c].[Un_Skill], [c].[Unempl], [c].[update_mobilenumber_date], [c].[wotc_printed], [c].[Zip], [c].[apt], [c].[fromast], [c].[hot], [c].[notes], [c].[office], [c].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c]
+            WHERE ([c].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t0] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c0].[Id], [c0].[Name]
+            FROM [CandidateStatus] AS [c0]
+            WHERE (([t0].[StatusType] <> 0) OR [t0].[StatusType] IS NULL) AND ([t0].[StatusType] = [c0].[Id])
+        ) AS [t1]), 0) AS [c7], (
+        SELECT TOP(1) [t3].[Name]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e0]
+        LEFT JOIN (
+            SELECT [c1].[Cand_ID], [c1].[Address], [c1].[agent_i9_verification_req], [c1].[AgreementType], [c1].[Alt_Phone], [c1].[aoc_referral], [c1].[app_submit_date], [c1].[Beep], [c1].[CFHC], [c1].[CFHC_Expiration], [c1].[CandidateType], [c1].[cell_carrier_id], [c1].[City], [c1].[Contact_Name], [c1].[Contact_Phone], [c1].[Contact_Relationship], [c1].[Cre_Auto_Emails], [c1].[CreatedBy], [c1].[CreatedOn], [c1].[Crime], [c1].[DNR_Reas_id], [c1].[DOB], [c1].[Date_Avail], [c1].[date_enter], [c1].[DirectDep], [c1].[div_id], [c1].[Dnr_Checked], [c1].[Dnr_Desc], [c1].[E_Mail], [c1].[EMp_SINCE], [c1].[E_Rating], [c1].[EVerify_Status], [c1].[Fax_Phone], [c1].[First_Name], [c1].[Health_Sup], [c1].[Home_Phone], [c1].[How_Heard_ID], [c1].[I9_Compl], [c1].[I9_Verified], [c1].[In_Empowerment_Zone], [c1].[independent_contractor], [c1].[IsAdmittedInUS], [c1].[is_clinical], [c1].[is_perm_candidate], [c1].[Last_Name], [c1].[LastTimeslipWE], [c1].[liability_agree_datetime], [c1].[Max_Pay], [c1].[max_education_level], [c1].[Middle], [c1].[Min_Pay], [c1].[ModifiedBy], [c1].[ModifiedOn], [c1].[NeedUpdated], [c1].[Net_Profit], [c1].[no_ivr_calls], [c1].[no_paystub], [c1].[occ_year_of_exp], [c1].[OnBoardingSubStatus], [c1].[OnBoardingType], [c1].[OriginalApplicantId], [c1].[PJB_Contact_Method], [c1].[payroll_card_agree_timestamp], [c1].[pjb_contact_text], [c1].[pjb_contact_email], [c1].[pjb_contact_ivr_call], [c1].[pos_seeking], [c1].[REp], [c1].[rcv_ivr], [c1].[recruiter_id], [c1].[Referral_Source], [c1].[ref_id], [c1].[ref_sub_source_id], [c1].[rn_number], [c1].[SSN], [c1].[send_text_msgs], [c1].[sf_hc_waiver], [c1].[Spouse], [c1].[State], [c1].[StatusType], [c1].[SubStatusType], [c1].[TenantId], [c1].[Text_Msg_Email], [c1].[Un_Skill], [c1].[Unempl], [c1].[update_mobilenumber_date], [c1].[wotc_printed], [c1].[Zip], [c1].[apt], [c1].[fromast], [c1].[hot], [c1].[notes], [c1].[office], [c1].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c1]
+            WHERE ([c1].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t2] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c2].[Id], [c2].[Name]
+            FROM [CandidateStatus] AS [c2]
+            WHERE (([t2].[StatusType] <> 0) OR [t2].[StatusType] IS NULL) AND ([t2].[StatusType] = [c2].[Id])
+        ) AS [t3]) AS [c8], (
+        SELECT TOP(1) [t5].[Name]
+        FROM (
+            SELECT NULL AS [empty]
+        ) AS [e1]
+        LEFT JOIN (
+            SELECT [c3].[Cand_ID], [c3].[Address], [c3].[agent_i9_verification_req], [c3].[AgreementType], [c3].[Alt_Phone], [c3].[aoc_referral], [c3].[app_submit_date], [c3].[Beep], [c3].[CFHC], [c3].[CFHC_Expiration], [c3].[CandidateType], [c3].[cell_carrier_id], [c3].[City], [c3].[Contact_Name], [c3].[Contact_Phone], [c3].[Contact_Relationship], [c3].[Cre_Auto_Emails], [c3].[CreatedBy], [c3].[CreatedOn], [c3].[Crime], [c3].[DNR_Reas_id], [c3].[DOB], [c3].[Date_Avail], [c3].[date_enter], [c3].[DirectDep], [c3].[div_id], [c3].[Dnr_Checked], [c3].[Dnr_Desc], [c3].[E_Mail], [c3].[EMp_SINCE], [c3].[E_Rating], [c3].[EVerify_Status], [c3].[Fax_Phone], [c3].[First_Name], [c3].[Health_Sup], [c3].[Home_Phone], [c3].[How_Heard_ID], [c3].[I9_Compl], [c3].[I9_Verified], [c3].[In_Empowerment_Zone], [c3].[independent_contractor], [c3].[IsAdmittedInUS], [c3].[is_clinical], [c3].[is_perm_candidate], [c3].[Last_Name], [c3].[LastTimeslipWE], [c3].[liability_agree_datetime], [c3].[Max_Pay], [c3].[max_education_level], [c3].[Middle], [c3].[Min_Pay], [c3].[ModifiedBy], [c3].[ModifiedOn], [c3].[NeedUpdated], [c3].[Net_Profit], [c3].[no_ivr_calls], [c3].[no_paystub], [c3].[occ_year_of_exp], [c3].[OnBoardingSubStatus], [c3].[OnBoardingType], [c3].[OriginalApplicantId], [c3].[PJB_Contact_Method], [c3].[payroll_card_agree_timestamp], [c3].[pjb_contact_text], [c3].[pjb_contact_email], [c3].[pjb_contact_ivr_call], [c3].[pos_seeking], [c3].[REp], [c3].[rcv_ivr], [c3].[recruiter_id], [c3].[Referral_Source], [c3].[ref_id], [c3].[ref_sub_source_id], [c3].[rn_number], [c3].[SSN], [c3].[send_text_msgs], [c3].[sf_hc_waiver], [c3].[Spouse], [c3].[State], [c3].[StatusType], [c3].[SubStatusType], [c3].[TenantId], [c3].[Text_Msg_Email], [c3].[Un_Skill], [c3].[Unempl], [c3].[update_mobilenumber_date], [c3].[wotc_printed], [c3].[Zip], [c3].[apt], [c3].[fromast], [c3].[hot], [c3].[notes], [c3].[office], [c3].[unemplasof]
+            FROM [Can_Prof_Gen] AS [c3]
+            WHERE ([c3].[Cand_ID] = [a].[CandidateId]) AND (([a].[CandidateId] <> 0) OR [a].[CandidateId] IS NULL)
+        ) AS [t4] ON 1 = 1
+        OUTER APPLY (
+            SELECT [c4].[Id], [c4].[Name], [c4].[StatusId]
+            FROM [CandidateSubStatus] AS [c4]
+            WHERE (([t4].[SubStatusType] <> 0) OR [t4].[SubStatusType] IS NULL) AND ([t4].[SubStatusType] = [c4].[Id])
+        ) AS [t5]) AS [c9], [j].[JobPostId] AS [JobPostId0], [d].[Div_ID], [d0].[DivisionID] AS [DivisionID0], [a0].[Id] AS [Id0], [j0].[JobBoardId], [i].[id] AS [id1], [a].[OldApplicantId]
+    FROM [Applicant] AS [a]
+    LEFT JOIN [JobPostDetails] AS [j] ON [a].[JobPostId] = [j].[JobPostId]
+    INNER JOIN [Divisions] AS [d] ON [a].[DivisionId] = [d].[Div_ID]
+    LEFT JOIN [DivisionTheme] AS [d0] ON [a].[DivisionId] = [d0].[DivisionID]
+    INNER JOIN [ApplicantSubSource] AS [a0] ON [a].[SubSourceID] = [a0].[Id]
+    LEFT JOIN [JobBoardDetails] AS [j0] ON [a0].[ApplicantSourceId] = [j0].[JobBoardId]
+    LEFT JOIN [ICU_Resume_queue] AS [i] ON [a].[Id] = [i].[applicant_id]
+    WHERE [a].[Id] = @__objRequest_ApplicantId_0
+    ORDER BY [a].[SubmitDateTime] DESC
+) AS [t]
+LEFT JOIN (
+    SELECT [j2].[JobTitle], CONVERT(varchar(100), [a2].[SubmitDateTime]) AS [JobDate], [a2].[Id], [a3].[Id] AS [Id0], [j1].[JobBoardId], [j2].[JobPostId], [a2].[Email]
+    FROM [Applicant] AS [a2]
+    INNER JOIN [ApplicantSubSource] AS [a3] ON [a2].[SubSourceID] = [a3].[Id]
+    LEFT JOIN [JobBoardDetails] AS [j1] ON [a3].[ApplicantSourceId] = [j1].[JobBoardId]
+    LEFT JOIN [JobPostDetails] AS [j2] ON [a2].[JobPostId] = [j2].[JobPostId]
+) AS [t6] ON [t].[Email] = [t6].[Email]
+OUTER APPLY (
+    SELECT DISTINCT [r].[RecruitingStageTypeId] AS [RecruitingStageId], [r0].[StageName] AS [ParentStageName], [r].[IsRecruitingStageCompleted]
+    FROM [RecuritmentStageDetail] AS [r]
+    INNER JOIN [RecruitingStageType] AS [r0] ON [r].[RecruitingStageTypeId] = [r0].[RecruitingStageTypeId]
+    WHERE [r].[ApplicantId] = [t].[Id]
+) AS [t7]
+OUTER APPLY (
+    SELECT DISTINCT [r1].[RecruitingStageTypeId] AS [RecruitingStageId], [r3].[SubStageName] AS [RecrutingStage], [r2].[RecruitingSubStageId], [r1].[IsRecruitingStageCompleted], [r1].[CreatedOn], [u0].[Name] AS [UserName], [r1].[Comments]
+    FROM [RecuritmentStageDetail] AS [r1]
+    INNER JOIN [RecuritmentSubStageDetail] AS [r2] ON [r1].[Id] = [r2].[RecruitingStageId]
+    INNER JOIN [RecruitingSubStageType] AS [r3] ON [r2].[RecruitingSubStageId] = [r3].[Id]
+    INNER JOIN [User_Names] AS [u0] ON [r1].[CreatedBy] = [u0].[User_ID]
+    WHERE [r1].[ApplicantId] = [t].[Id]
+) AS [t8]
+OUTER APPLY (
+    SELECT DISTINCT [w0].[WorkingListName]
+    FROM [workinglistitem] AS [w]
+    INNER JOIN [WorkingListNew] AS [w0] ON [w].[WorkingListId] = [w0].[WorkingListId]
+    WHERE [w].[CandidateID] = [t].[CandidateId]
+) AS [t9]
+OUTER APPLY (
+    SELECT DISTINCT [c6].[Name]
+    FROM [Campaign_Invitations] AS [c5]
+    INNER JOIN [Campaign] AS [c6] ON [c5].[campaign_id] = [c6].[Id]
+    WHERE [c5].[applicant_id] = [t].[OldApplicantId]
+) AS [t10]
+ORDER BY [t].[SubmitDateTime] DESC, [t].[Id], [t].[JobPostId0], [t].[Div_ID], [t].[DivisionID0], [t].[Id0], [t].[JobBoardId], [t].[id1], [t6].[Id], [t6].[Id0], [t6].[JobBoardId], [t6].[JobPostId], [t7].[RecruitingStageId], [t7].[ParentStageName], [t7].[IsRecruitingStageCompleted], [t8].[RecruitingStageId], [t8].[RecrutingStage], [t8].[RecruitingSubStageId], [t8].[IsRecruitingStageCompleted], [t8].[CreatedOn], [t8].[UserName], [t8].[Comments], [t9].[WorkingListName]
+ 2022-09-26 17:31:20,735  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 

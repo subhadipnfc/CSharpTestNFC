@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bO7mUjOQUnykUCOPfPTbLRnHAk2TzaB5qZcHMmM+CUHgC1IpD1AxLeIMdxGsqtE4ZpX9coY9y6e4fqABM6a2RA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\source\\repos\\NFCTest\\src\\TemPositions.IntelliStaff.SharedKernel\\TemPositions.IntelliStaff.SharedKernel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\ardalis.specification\\5.2.0\\ardalis.specification.5.2.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

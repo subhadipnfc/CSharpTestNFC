@@ -1,0 +1,15 @@
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\bin\Release\net6.0\TemPositions.IntelliStaff.Core.deps.json
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\bin\Release\net6.0\TemPositions.IntelliStaff.Core.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\bin\Release\net6.0\TemPositions.IntelliStaff.Core.pdb
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\bin\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\bin\Release\net6.0\TemPositions.IntelliStaff.SharedKernel.pdb
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.csproj.AssemblyReference.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.AssemblyInfoInputs.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.AssemblyInfo.cs
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.csproj.CopyComplete
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\refint\TemPositions.IntelliStaff.Core.dll
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\TemPositions.IntelliStaff.Core.pdb
+C:\Users\Dell\Source\Repos\Intellistaff.Applicants\TemPositions.IntelliStaff\src\TemPositions.IntelliStaff.Core\obj\Release\net6.0\ref\TemPositions.IntelliStaff.Core.dll

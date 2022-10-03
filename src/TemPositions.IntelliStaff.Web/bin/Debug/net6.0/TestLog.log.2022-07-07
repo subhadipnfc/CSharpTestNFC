@@ -1,0 +1,59 @@
+2022-07-07 23:54:48,731  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2,034ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [App_Notes] ([Activ], [App_id], [Category], [CategoryType], [Date_in], [Source], [User_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Note_id]
+FROM [App_Notes]
+WHERE @@ROWCOUNT = 1 AND [Note_id] = scope_identity();
+ 2022-07-07 23:54:49,500  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (335ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ApplicantNotes] ([Activity], [ApplicantId], [CategoryId], [CategoryType], [CreatedBy], [CreatedOn], [IsAutomated], [ModifiedBy], [ModifiedOn], [RecordStatus], [TenantId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [ApplicantNotes]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-07-07 23:54:50,138  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (294ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ProfileReview] ([Comments], [CreatedBy], [CreatedOn], [EntityId], [EntityType], [ReviewDate], [Status])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Id]
+FROM [ProfileReview]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-07-07 23:54:50,463  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (249ms) [Parameters=[@__objRequest_RecruitingStageTypeId_0='?' (DbType = Int32), @__objRequest_ApplicantId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [RecruitingStageN] AS [r]
+WHERE ([r].[RecruitingStageTypeId] = @__objRequest_RecruitingStageTypeId_0) AND ([r].[ApplicantId] = @__objRequest_ApplicantId_1)
+ 2022-07-07 23:54:50,766  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (252ms) [Parameters=[@__objRequest_RecruitingSubStageTypeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) CASE
+    WHEN [r].[IsRecruitingStageCompleted] = 0 THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END
+FROM [RecruitingSubStageType] AS [r]
+WHERE [r].[Id] = @__objRequest_RecruitingSubStageTypeId_0
+ 2022-07-07 23:54:51,332  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (243ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecruitingStageN] ([ApplicantId], [CandidateId], [Comments], [CreatedBy], [CreatedOn], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecruitingStageTypeId], [StageDateTime])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT [Id]
+FROM [RecruitingStageN]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-07-07 23:54:51,914  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (241ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [RecruitingSubStageDetailN] ([Comments], [CreatedBy], [CreatedOn], [EntityId], [EntityTypeId], [IsRecruitingStageCompleted], [ModifiedBy], [ModifiedOn], [RecruitingStageId], [RecruitingSubStageId], [Status])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [RecruitingSubStageDetailN]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+ 2022-07-07 23:54:57,017  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[[System.Boolean, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[TemPositions.IntelliStaff.Infrastructure.Data.ApplicantRepository+<InsertRecruitingStageByEvent>d__12, TemPositions.IntelliStaff.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-07-07 23:54:57,506  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web) in 17834.4418ms
+ 2022-07-07 23:54:57,513  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web)'
+ 2022-07-07 23:54:57,525  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57679/api/Applicant/InsertRecruitingStageByEvent application/json 1308 - 200 528298 application/json;+charset=utf-8 18387.5229ms
+ 2022-07-07 23:55:26,690  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request starting HTTP/1.1 POST http://localhost:57679/api/Applicant/InsertRecruitingStageByEvent application/json 1308
+ 2022-07-07 23:55:26,722  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executing endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.InsertRecruitingStageByEvent (TemPositions.IntelliStaff.Web)'
+ 2022-07-07 23:55:26,727  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Route matched with {action = "InsertRecruitingStageByEvent", controller = "Applicant", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] InsertRecruitingStageByEvent(TemPositions.IntelliStaff.Core.ApplicantAggregate.RecruitingStageInput2) on controller TemPositions.IntelliStaff.Web.Api.ApplicantController (TemPositions.IntelliStaff.Web).
+ 2022-07-07 23:55:31,835  INFO Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 6.0.0 initialized 'IntelliStaffContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+ 2022-07-07 23:55:32,131  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (241ms) [Parameters=[@__objRequest_ApplicantId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[Address], [a].[ApplicantType], [a].[CandidateId], [a].[CellPhoneNumber], [a].[City], [a].[CreatedBy], [a].[CreatedOn], [a].[DivisionId], [a].[Email], [a].[FirstName], [a].[HasResumeFile], [a].[HomePhoneNumber], [a].[JobPostId], [a].[JobPostReferenceId], [a].[LastName], [a].[MiddleName], [a].[ModifiedBy], [a].[ModifiedOn], [a].[RecordStatus], [a].[ReferenceId], [a].[State], [a].[SubSourceID], [a].[SubmitDateTime], [a].[TenantId], [a].[ZipCode]
+FROM [Applicant] AS [a]
+WHERE [a].[Id] = @__objRequest_ApplicantId_0
+ 

@@ -1,0 +1,5 @@
+2022-09-28 17:11:47,110  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor.? [?] - MESSAGE: Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TemPositions.IntelliStaff.Core.ApplicantAggregate.JobPostingApplicantDetails, TemPositions.IntelliStaff.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+ 2022-09-28 17:11:47,169  INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.? [?] - MESSAGE: Executed action TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web) in 2506.0339ms
+ 2022-09-28 17:11:47,175  INFO Microsoft.AspNetCore.Routing.EndpointMiddleware.? [?] - MESSAGE: Executed endpoint 'TemPositions.IntelliStaff.Web.Api.ApplicantController.GetApplicantDetailsByApplicantId (TemPositions.IntelliStaff.Web)'
+ 2022-09-28 17:11:47,180  INFO Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Request finished HTTP/1.1 POST http://localhost:57678/api/Applicant/GetApplicantDetailsByApplicantId application/json 298 - 200 1546 application/json;+charset=utf-8 2649.2326ms
+ 
